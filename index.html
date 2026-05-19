@@ -1032,6 +1032,49 @@ body.light nav {
 <body>
 
 <!-- NAV -->
+<!-- PAGE LOADER -->
+<div id="loader" style="
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+">
+  <div style="
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  ">AAM</div>
+  <div style="
+    width: 200px;
+    height: 3px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  ">
+    <div id="loaderBar" style="
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 3px;
+      transition: width 0.05s ease;
+    "></div>
+  </div>
+  <div style="
+    margin-top: 16px;
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  ">Loading Portfolio...</div>
+</div>
 <nav>
   <div class="nav-logo">AAM</div>
   <ul class="nav-links">
@@ -1062,7 +1105,7 @@ body.light nav {
 <!-- HERO -->
 <section class="hero" id="home" style="flex-direction:column; align-items:center; text-align:center;">
   <div class="hero-bg"></div>
- <div style="display:flex; justify-content:center; width:100%; margin-bottom:24px; margin-top:20px;">
+ <div style="display:flex; justify-content:center; width:100%; margin-bottom:32px; margin-top:100px;">
   <div class="profile-container">
     <img src="https://raw.githubusercontent.com/Neta-cad/Portfolio1/refs/heads/main/ayomide.jpg" alt="Akingboye Ayomide Mishael" class="profile-img">
     <div class="profile-badge-pic">
@@ -1527,6 +1570,13 @@ body.light nav {
           <div class="contact-value">github.com/Neta-cad</div>
         </div>
       </a>
+      <a href="https://wa.me/2348128129139" class="contact-item" target="_blank">
+  <div class="contact-icon" style="background:rgba(37,211,102,0.1);">💬</div>
+  <div>
+    <div class="contact-label">WhatsApp</div>
+    <div class="contact-value">Chat with me directly</div>
+  </div>
+</a>
       <div class="contact-item">
         <div class="contact-icon">📍</div>
         <div>
@@ -1666,6 +1716,29 @@ if (localStorage.getItem('theme') === 'light') {
   document.body.classList.add('light');
   document.getElementById('themeToggle').textContent = '☀️';
 }
+
+// Page loader
+const loader = document.getElementById('loader');
+const loaderBar = document.getElementById('loaderBar');
+let progress = 0;
+
+const loadInterval = setInterval(() => {
+  progress += Math.random() * 15;
+  if (progress >= 100) {
+    progress = 100;
+    loaderBar.style.width = '100%';
+    clearInterval(loadInterval);
+    setTimeout(() => {
+      loader.style.opacity = '0';
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 500);
+    }, 300);
+  } else {
+    loaderBar.style.width = progress + '%';
+  }
+}, 100);
+
 </script>
 <!-- BACK TO TOP -->
 <button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})" style="
