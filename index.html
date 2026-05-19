@@ -894,15 +894,12 @@
     transform: translateY(-2px);
     box-shadow: 0 0 30px rgba(0,212,255,0.35);
   }
-  /* PROFILE PICTURE */
+/* PROFILE PICTURE */
 .profile-container {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 280px;
+  height: 280px;
   flex-shrink: 0;
-  margin: 0 auto;
-  border-radius: 50%;
-  overflow: hidden;
 }
 
 .profile-ring {
@@ -930,13 +927,12 @@
 .profile-img {
   position: relative;
   z-index: 1;
-  width: 200px;
-  height: 200px;
-  border-radius: 50% !important;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
   object-fit: cover;
   object-position: center top;
   border: 4px solid var(--bg);
-  display: block;
 }
 
 .profile-badge-pic {
@@ -1005,11 +1001,11 @@
     .hero-visual { display: none; }
     section { padding: 70px 24px; }
     .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+.profile-container { width: 200px; height: 200px; margin: 0 auto; }
     .stats-row { gap: 28px; }
     footer { padding: 30px 24px; flex-direction: column; gap: 12px; text-align: center; }
     .divider { margin: 0 24px; }
   }
-  
   @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
@@ -1185,18 +1181,14 @@ body.light nav {
 <!-- HERO -->
 <section class="hero" id="home" style="flex-direction:column; align-items:center; text-align:center;">
   <div class="hero-bg"></div>
- <div style="display:flex; justify-content:center; width:100%; margin-bottom:32px; margin-top:100px;">
+  <div style="display:flex; justify-content:center; margin-bottom:32px;">
   <div class="profile-container">
-    <img src="https://raw.githubusercontent.com/Neta-cad/Portfolio1/refs/heads/main/ayomide.jpg" alt="Akingboye Ayomide Mishael" class="profile-img">
-    <div class="profile-badge-pic">
-      
-    </div>
+    <div class="profile-ring"></div>
+    <img src="https://raw.githubusercontent.com/Neta-cad/Poet/main/ayomide.jpg" alt="Akingboye Ayomide Mishael" class="profile-img">
+    <div class="profile-badge-pic">✅ Open to Work</div>
   </div>
 </div>
   <div class="hero-content">
-  
-
-</div>
     <div class="hero-badge">Available for Opportunities</div>
     <h1>Akingboye<br>Ayomide <span>Mishael</span></h1>
     <div style="font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:700; color:var(--accent); margin-bottom:16px; min-height:2rem;">
@@ -1205,11 +1197,16 @@ body.light nav {
     <p class="hero-tagline">
       Junior Data Analyst passionate about transforming raw data into powerful business intelligence. I build production-grade database systems that surface real insights and drive smarter decisions.
     </p>
-<div class="hero-ctas">
-  <a href="#projects" class="btn-primary">View My Projects →</a>
-  <a href="#contact" class="btn-outline">Get In Touch</a>
-  <a href="https://raw.githubusercontent.com/Neta-cad/Portfolio1/main/Akingboye_Ayomide_CV.pdf" download="Akingboye_Ayomide_CV.pdf" class="btn-outline" style="background:rgba(16,185,129,0.1); color:#10b981; border-color:rgba(16,185,129,0.3);">⬇️ Download CV</a>
-</div>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View My Projects →</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+      <a href="https://raw.githubusercontent.com/Neta-cad/Portfolio1/main/Akingboye_Ayomide_CV.pdf"
+   download="Akingboye_Ayomide_CV.pdf"
+   class="btn-outline"
+   style="background:rgba(16,185,129,0.1); color:#10b981; border-color:rgba(16,185,129,0.3);">
+   ⬇️ Download CV
+</a>
+    </div>
     <div class="stats-row">
       <div class="stat-item">
         <div class="stat-number">2</div>
@@ -1247,6 +1244,12 @@ body.light nav {
       <div class="float-card-sub">Q4 Prediction</div>
     </div>
   </div>
+  <!-- PROFILE PICTURE -->
+<div class="profile-container" style="display:none;" id="profilePic">
+  <div class="profile-ring"></div>
+  <img src="https://raw.githubusercontent.com/Neta-cad/Portfolio1/refs/heads/main/ayomide.jpg" alt="Akingboye Ayomide Mishael" class="profile-img">
+  <div class="profile-badge-pic">✅ Available</div>
+</div>
 </section>
 
 <div class="divider"></div>
@@ -1380,6 +1383,24 @@ body.light nav {
     <!-- Project 1 -->
     <div class="project-card fade-up">
       <div class="project-badge">Stage 1 · Remote Hustle</div>
+      <div style="
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(0,212,255,0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+">
+  <div style="font-size:2.5rem;">🗄️</div>
+  <div style="color:var(--accent3); font-family:'Syne',sans-serif; font-weight:700; font-size:0.9rem;">Master Operational Database</div>
+  <div style="color:var(--muted); font-size:0.75rem;">PostgreSQL · Supabase · Live</div>
+</div>
       <div class="project-title">RemoteHustleDB</div>
       <p class="project-desc">A Master Operational Database designed to power the day-to-day operations of a real business. Features complete data integrity, analytical queries, and row level security deployed live on Supabase.</p>
       <div class="project-stats">
@@ -1411,6 +1432,24 @@ body.light nav {
     <!-- Project 2 -->
     <div class="project-card fade-up">
       <div class="project-badge stage2">Stage 2 · Remote Hustle</div>
+      <div style="
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(124,58,237,0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+">
+  <div style="font-size:2.5rem;">🧠</div>
+  <div style="color:var(--accent); font-family:'Syne',sans-serif; font-weight:700; font-size:0.9rem;">Revenue Intelligence System</div>
+  <div style="color:var(--muted); font-size:0.75rem;">PostgreSQL · Supabase · Live</div>
+</div>
       <div class="project-title">RevIQ — Revenue Intelligence System</div>
       <p class="project-desc">A production-grade Revenue Intelligence System that unifies CRM, activity logs and billing data to surface pipeline risks, churn signals, revenue forecasts and upsell opportunities — all through pure SQL intelligence.</p>
       <div class="project-stats">
@@ -1629,7 +1668,7 @@ body.light nav {
 
   <div class="contact-grid">
     <div class="contact-info fade-up">
-     <a href="https://mail.google.com/mail/?view=cm&to=akingboyeayomide29@gmail.com" class="contact-item" target="_blank">
+      <a href="mailto:akingboyeayomide29@gmail.com" class="contact-item">
         <div class="contact-icon">✉️</div>
         <div>
           <div class="contact-label">Email</div>
@@ -1669,19 +1708,19 @@ body.light nav {
     <form class="contact-form fade-up" action="https://formspree.io/f/xkoegqpq" method="POST">
       <div class="form-group">
         <label class="form-label">Your Name</label>
-       <input type="text" name="name" class="form-input" placeholder="John Doe">
+        <input type="text" class="form-input" placeholder="John Doe">
       </div>
       <div class="form-group">
         <label class="form-label">Your Email</label>
-       <input type="email" name="email" class="form-input" placeholder="john@company.com">
+        <input type="email" class="form-input" placeholder="john@company.com">
       </div>
       <div class="form-group">
         <label class="form-label">Message</label>
-        <textarea name="message" class="form-textarea" placeholder="Tell me about the opportunity..."></textarea>
+        <textarea class="form-textarea" placeholder="Tell me about the opportunity..."></textarea>
       </div>
-     <button type="submit" class="form-submit">Send Message →</button>
-    </form>
-  </div>
+      <button type="submit" class="form-submit">Send Message →</button>
+    </div>
+ </form>
 </section>
 
 <!-- FOOTER -->
@@ -1752,23 +1791,32 @@ function type() {
 
 type();
 // Animated counters
-window.addEventListener('load', () => {
-  document.querySelectorAll('.counter').forEach(el => {
-    const target = parseInt(el.getAttribute('data-target'));
-    const suffix = el.getAttribute('data-suffix') || '';
-    let count = 0;
-    const speed = Math.ceil(target / 50);
-    const timer = setInterval(() => {
-      count += speed;
-      if (count >= target) {
-        el.textContent = target + suffix;
-        clearInterval(timer);
-      } else {
-        el.textContent = count + suffix;
-      }
-    }, 30);
+function animateCounter(el, target, duration) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) {
+      el.textContent = target + (el.dataset.suffix || '');
+      clearInterval(timer);
+    } else {
+      el.textContent = Math.floor(start) + (el.dataset.suffix || '');
+    }
+  }, 16);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      animateCounter(el, target, 1500);
+      counterObserver.unobserve(el);
+    }
   });
-});
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
 // Back to top button
 const backToTop = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
@@ -1796,7 +1844,6 @@ if (localStorage.getItem('theme') === 'light') {
   document.body.classList.add('light');
   document.getElementById('themeToggle').textContent = '☀️';
 }
-
 // Page loader
 const loader = document.getElementById('loader');
 const loaderBar = document.getElementById('loaderBar');
@@ -1816,17 +1863,15 @@ const loadInterval = setInterval(() => {
     }, 300);
   } else {
     loaderBar.style.width = progress + '%';
-  } 
+  }
 }, 100);
-
-// Hamburger menu   ,
+// Hamburger menu
 function toggleMenu() {
-  const hamburger = document.getElementByIm d('hamburger');
+  const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   hamburger.classList.toggle('active');
   mobileMenu.classList.toggle('active');
 }
-
 </script>
 <!-- BACK TO TOP -->
 <button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})" style="
