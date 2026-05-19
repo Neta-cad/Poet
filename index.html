@@ -1027,6 +1027,71 @@ body.light {
 body.light nav {
   background: rgba(248,250,252,0.85);
 }
+/* HAMBURGER MENU */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background: rgba(8,12,20,0.98);
+  backdrop-filter: blur(20px);
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+  z-index: 998;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-menu.active {
+  display: flex;
+}
+
+.mobile-menu a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+
+.mobile-menu a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .hamburger { display: flex; }
+}
 </style>
 </head>
 <body>
@@ -1100,7 +1165,22 @@ body.light nav {
   justify-content: center;
   transition: all 0.2s;
 ">🌙</button>
+<div class="hamburger" id="hamburger" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 </nav>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#skills" onclick="toggleMenu()">Skills</a>
+  <a href="#projects" onclick="toggleMenu()">Projects</a>
+  <a href="#certifications" onclick="toggleMenu()">Certifications</a>
+  <a href="#experience" onclick="toggleMenu()">Experience</a>
+  <a href="#blog" onclick="toggleMenu()">Blog</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home" style="flex-direction:column; align-items:center; text-align:center;">
@@ -1736,8 +1816,16 @@ const loadInterval = setInterval(() => {
     }, 300);
   } else {
     loaderBar.style.width = progress + '%';
-  }
+  } 
 }, 100);
+
+// Hamburger menu   ,
+function toggleMenu() {
+  const hamburger = document.getElementByIm d('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+}
 
 </script>
 <!-- BACK TO TOP -->
