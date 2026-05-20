@@ -322,3 +322,4 @@ else if (
 
   input.value = "";
 }
+
