@@ -147,3 +147,27 @@ window.addEventListener('scroll', () => {
   const scrollPercent = (scrollTop / docHeight) * 100;
   document.getElementById('scrollBar').style.width = scrollPercent + '%';
 });
+// Fake sales database
+const salesData = [
+  { region: "North", revenue: 120000 },
+  { region: "South", revenue: 95000 },
+  { region: "East", revenue: 143000 },
+  { region: "West", revenue: 87000 }
+];
+
+function runSQL() {
+
+  const tableBody = document.querySelector('#resultTable tbody');
+
+  tableBody.innerHTML = '';
+
+  salesData.forEach(row => {
+    tableBody.innerHTML += `
+      <tr>
+        <td>${row.region}</td>
+        <td>$${row.revenue.toLocaleString()}</td>
+      </tr>
+    `;
+  });
+
+}

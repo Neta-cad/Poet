@@ -743,6 +743,42 @@ method="POST">
   box-shadow: 0 0 20px rgba(0,212,255,0.3);
   font-weight: 700;
 ">↑</button>
+<section id="sql-playground" class="fade-up">
+  <div class="section-label">Interactive SQL Lab</div>
+  <h2 class="section-title">Live SQL Playground</h2>
+  <p class="section-sub">
+    Run analytical SQL queries against a simulated sales database.
+  </p>
+
+  <div class="sql-container">
+
+    <div class="sql-editor">
+      <textarea id="sqlInput">
+SELECT region, SUM(revenue)
+FROM sales
+GROUP BY region;
+      </textarea>
+
+      <button onclick="runSQL()" class="run-btn">
+        Run Query
+      </button>
+    </div>
+
+    <div class="sql-results">
+      <table id="resultTable">
+        <thead>
+          <tr>
+            <th>Region</th>
+            <th>Total Revenue</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
 <script src="script.js"></script>
 </body>
 </html>
