@@ -191,13 +191,16 @@ function sendMessage() {
 
   if (!userText) return;
 
+  // USER MESSAGE
   messages.innerHTML += `
     <div class="user-msg">${userText}</div>
   `;
 
-  let reply = "I don't understand that yet.";
-
   const msg = userText.toLowerCase();
+
+  let reply = "I can answer questions about SQL, analytics, projects, Power BI, GitHub and Revenue Intelligence Systems.";
+
+  // RESPONSES
 
   if (msg.includes("sql")) {
     reply = "Akingboye specializes in PostgreSQL, Supabase, analytical queries and revenue intelligence systems.";
@@ -214,150 +217,105 @@ function sendMessage() {
   else if (msg.includes("experience")) {
     reply = "Akingboye is a Junior Data Analyst focused on transforming raw data into actionable insights.";
   }
-else if (
-  msg.includes("who is akingboye") ||
-  msg.includes("tell me about akingboye")
-) {
-  reply = "Akingboye is a data analyst and database developer focused on SQL systems, revenue intelligence and analytics engineering.";
-}
 
-else if (
-  msg.includes("what can you do") ||
-  msg.includes("who are you")
-) {
-  reply = "I'm Akingboye's AI assistant. I can explain his projects, technical skills, experience and analytics systems.";
-}
+  else if (
+    msg.includes("who is akingboye") ||
+    msg.includes("tell me about akingboye")
+  ) {
+    reply = "Akingboye is a data analyst and database developer focused on SQL systems, revenue intelligence and analytics engineering.";
+  }
 
-else if (
-  msg.includes("best project") ||
-  msg.includes("main project")
-) {
-  reply = "The flagship project is the Revenue Intelligence System — an advanced SQL analytics platform with forecasting, churn analysis and cohort tracking.";
-}
+  else if (
+    msg.includes("what can you do") ||
+    msg.includes("who are you")
+  ) {
+    reply = "I'm Akingboye's AI assistant. I can explain projects, technical skills, analytics systems and SQL work.";
+  }
 
-else if (
-  msg.includes("revenue intelligence")
-) {
-  reply = "The Revenue Intelligence System was built using PostgreSQL and Supabase. It analyzes revenue growth, customer behavior, forecasting and business KPIs.";
-}
+  else if (
+    msg.includes("best project") ||
+    msg.includes("main project")
+  ) {
+    reply = "The flagship project is the Revenue Intelligence System — an advanced SQL analytics platform with forecasting, churn analysis and cohort tracking.";
+  }
 
-else if (
-  msg.includes("why should we hire")
-) {
-  reply = "Akingboye combines technical SQL expertise with strong analytical thinking and modern dashboard development.";
-}
+  else if (
+    msg.includes("revenue intelligence")
+  ) {
+    reply = "The Revenue Intelligence System was built using PostgreSQL and Supabase. It analyzes revenue growth, customer behavior, forecasting and business KPIs.";
+  }
 
-else if (
-  msg.includes("what databases")
-) {
-  reply = "Akingboye primarily works with PostgreSQL and Supabase for scalable analytical systems.";
-}
+  else if (
+    msg.includes("why should we hire")
+  ) {
+    reply = "Akingboye combines technical SQL expertise with strong analytical thinking and modern dashboard development.";
+  }
 
-else if (
-  msg.includes("analytics")
-) {
-  reply = "Akingboye builds analytics systems focused on forecasting, KPI tracking, segmentation and business intelligence.";
-}
+  else if (
+    msg.includes("what databases")
+  ) {
+    reply = "Akingboye primarily works with PostgreSQL and Supabase for scalable analytical systems.";
+  }
 
-else if (
-  msg.includes("future goals")
-) {
-  reply = "Akingboye aims to become a high-level analytics engineer building enterprise intelligence systems.";
-}
+  else if (
+    msg.includes("analytics")
+  ) {
+    reply = "Akingboye builds analytics systems focused on forecasting, KPI tracking, segmentation and business intelligence.";
+  }
 
-else if (
-  msg.includes("experience level")
-) {
-  reply = "Akingboye is currently growing as a data analyst with strong hands-on SQL and analytics engineering experience.";
-}
+  else if (
+    msg.includes("future goals")
+  ) {
+    reply = "Akingboye aims to become a high-level analytics engineer building enterprise intelligence systems.";
+  }
 
-else if (
-  msg.includes("contact") ||
-  msg.includes("reach")
-) {
-  reply = "You can reach Akingboye through the contact section below on this portfolio.";
-}
+  else if (
+    msg.includes("experience level")
+  ) {
+    reply = "Akingboye is currently growing as a data analyst with strong hands-on SQL and analytics engineering experience.";
+  }
 
-else if (
-  msg.includes("github")
-) {
-  reply = "Akingboye's GitHub contains SQL systems, analytics projects and database engineering work.";
-}
+  else if (
+    msg.includes("contact") ||
+    msg.includes("reach")
+  ) {
+    reply = "You can reach Akingboye through the contact section below on this portfolio.";
+  }
 
-else if (
-  msg.includes("power bi")
-) {
-  reply = "Power BI is used for building interactive dashboards and executive-level reporting systems.";
-}
+  else if (
+    msg.includes("github")
+  ) {
+    reply = "Akingboye's GitHub contains SQL systems, analytics projects and database engineering work.";
+  }
 
-else if (
-  msg.includes("sql")
-) {
-  reply = "SQL is one of Akingboye's strongest skills, especially PostgreSQL analytics, advanced queries and revenue intelligence systems.";
-}
+  else if (
+    msg.includes("ai")
+  ) {
+    reply = "This AI assistant was custom-built into the portfolio using JavaScript to create an interactive experience.";
+  }
 
-else if (
-  msg.includes("ai")
-) {
-  reply = "This AI assistant was custom-built into the portfolio using JavaScript to create an interactive experience.";
-}
+  else if (
+    msg.includes("hello") ||
+    msg.includes("hi") ||
+    msg.includes("hey")
+  ) {
 
-else if (
-  msg.includes("who is Mishael") ||
-  msg.includes("tell me about Mishael")
-) {
-  reply = "Mishael Akingboye is a data analyst and database developer focused on SQL systems, revenue intelligence and analytics engineering.";
-}
+    const greetings = [
+      "Hello 👋 How can I help you today?",
+      "Hi there — ask me anything about Akingboye or his projects.",
+      "Hey 👋 I'm the AI assistant for this portfolio.",
+      "Welcome 🚀 Ask about projects, SQL, analytics or experience."
+    ];
 
-else if (
-  msg.includes("hi") ||
-  msg.includes("hello") ||
-  msg.includes("hey")
-) {
-  const greetings = [
-    "Hello 👋 How can I help you today?",
-    "Hi there — ask me anything about Akingboye or his projects.",
-    "Hey 👋 I'm the AI assistant for this portfolio.",
-    "Welcome 🚀 Ask about projects, SQL, analytics or experience."
-  ];
+    reply = greetings[Math.floor(Math.random() * greetings.length)];
+  }
 
-  reply = greetings[Math.floor(Math.random() * greetings.length)];
-}
-else if (
-  msg.includes("how are you")
-) {
-  reply = "I'm doing great 🚀 Ready to talk about analytics, SQL systems and projects.";
-}
-else if (
-  msg.includes("thanks") ||
-  msg.includes("thank you")
-) {
-  reply = "You're welcome 👌";
-}
-else if (
-  msg.includes("joke")
-) {
-  reply = "Why do analysts love SQL? Because they enjoy good relationships 😄";
-}
-else if (
-  msg.includes("skills")
-) {
-  reply = "Akingboye works with SQL, PostgreSQL, Power BI, Supabase, analytics engineering and dashboard systems.";
-}
-else if (
-  msg.includes("learning") ||
-  msg.includes("currently studying")
-) {
-  reply = "Currently expanding into Python, advanced analytics engineering and AI-powered systems.";
-}
-else {
-  reply = "I'm not fully trained for that yet 🤖 Try asking about SQL, projects, analytics, Power BI, GitHub or experience.";
-}
-
-
+  // BOT MESSAGE
   setTimeout(() => {
-  addMessage(reply, "bot");
-}, 700);
+
+    messages.innerHTML += `
+      <div class="bot-msg">${reply}</div>
+    `;
 
     messages.scrollTop = messages.scrollHeight;
 
@@ -365,4 +323,3 @@ else {
 
   input.value = "";
 }
-
