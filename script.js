@@ -309,12 +309,55 @@ else if (
   reply = "Mishael Akingboye is a data analyst and database developer focused on SQL systems, revenue intelligence and analytics engineering.";
 }
 
+else if (
+  msg.includes("hi") ||
+  msg.includes("hello") ||
+  msg.includes("hey")
+) {
+  const greetings = [
+    "Hello 👋 How can I help you today?",
+    "Hi there — ask me anything about Akingboye or his projects.",
+    "Hey 👋 I'm the AI assistant for this portfolio.",
+    "Welcome 🚀 Ask about projects, SQL, analytics or experience."
+  ];
+
+  reply = greetings[Math.floor(Math.random() * greetings.length)];
+}
+else if (
+  msg.includes("how are you")
+) {
+  reply = "I'm doing great 🚀 Ready to talk about analytics, SQL systems and projects.";
+}
+else if (
+  msg.includes("thanks") ||
+  msg.includes("thank you")
+) {
+  reply = "You're welcome 👌";
+}
+else if (
+  msg.includes("joke")
+) {
+  reply = "Why do analysts love SQL? Because they enjoy good relationships 😄";
+}
+else if (
+  msg.includes("skills")
+) {
+  reply = "Akingboye works with SQL, PostgreSQL, Power BI, Supabase, analytics engineering and dashboard systems.";
+}
+else if (
+  msg.includes("learning") ||
+  msg.includes("currently studying")
+) {
+  reply = "Currently expanding into Python, advanced analytics engineering and AI-powered systems.";
+}
+else {
+  reply = "I'm not fully trained for that yet 🤖 Try asking about SQL, projects, analytics, Power BI, GitHub or experience.";
+}
+
 
   setTimeout(() => {
-
-    messages.innerHTML += `
-      <div class="bot-msg">${reply}</div>
-    `;
+  addMessage(reply, "bot");
+}, 700);
 
     messages.scrollTop = messages.scrollHeight;
 
