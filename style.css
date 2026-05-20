@@ -1,5 +1,4 @@
-<style>
-  :root {
+:root {
     --bg: #080c14;
     --surface: #0e1420;
     --card: #111827;
@@ -1092,4 +1091,3 @@ body.light nav {
   z-index: 9999;
   transition: width 0.1s ease;
 }
-</style>

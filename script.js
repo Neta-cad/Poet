@@ -1,4 +1,3 @@
-<script>
   // Scroll animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -148,4 +147,3 @@ window.addEventListener('scroll', () => {
   const scrollPercent = (scrollTop / docHeight) * 100;
   document.getElementById('scrollBar').style.width = scrollPercent + '%';
 });
-</script>
