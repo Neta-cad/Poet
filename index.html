@@ -1088,11 +1088,54 @@ body.light nav {
 @media (max-width: 900px) {
   .hamburger { display: flex; }
 }
+/* SCROLL PROGRESS BAR */
+#scrollBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  z-index: 9999;
+  transition: width 0.1s ease;
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
+<!-- OPEN TO WORK BANNER -->
+<div id="openToWork" style="
+  position: fixed;
+  bottom: 90px;
+  left: 20px;
+  background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(0,212,255,0.15));
+  border: 1px solid rgba(16,185,129,0.3);
+  border-radius: 100px;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 997;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: transform 0.2s;
+" onclick="window.location.href='#contact'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+  <div style="
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent3);
+    animation: pulse 2s infinite;
+  "></div>
+  <span style="
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent3);
+    font-family: 'Syne', sans-serif;
+    white-space: nowrap;
+  ">Open to Work</span>
+</div>
 <!-- PAGE LOADER -->
 <div id="loader" style="
   position: fixed;
@@ -1136,6 +1179,8 @@ body.light nav {
     letter-spacing: 0.15em;
   ">Loading Portfolio...</div>
 </div>
+<!-- SCROLL PROGRESS BAR -->
+<div id="scrollBar"></div>
 <nav>
   <div class="nav-logo">AAM</div>
   <ul class="nav-links">
@@ -1291,7 +1336,14 @@ body.light nav {
     </div>
   </div>
 </section>
-
+<!-- GITHUB STATS -->
+<div style="margin-top:48px;" class="fade-up">
+  <div class="section-label">My GitHub Activity</div>
+  <div style="display:flex; flex-direction:column; gap:16px; margin-top:24px;">
+    <img src="https://github-readme-stats.vercel.app/api?username=Neta-cad&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0e1420&title_color=00d4ff&text_color=94a3b8&icon_color=7c3aed" alt="GitHub Stats" style="width:100%; border-radius:12px;">
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=Neta-cad&theme=tokyonight&hide_border=true&background=0e1420&ring=00d4ff&fire=7c3aed&currStreakLabel=00d4ff" alt="GitHub Streak" style="width:100%; border-radius:12px;">
+  </div>
+</div>
 <div class="divider"></div>
 
 <!-- SKILLS -->
@@ -1628,35 +1680,41 @@ body.light nav {
   <p class="section-sub">Sharing what I learn as I grow in data analytics — from SQL tips to real project stories.</p>
 
   <div class="blog-grid">
-    <div class="blog-card fade-up">
-      <div class="blog-tag">SQL</div>
-      <div class="blog-title">How I Built a Revenue Intelligence System Using Pure SQL</div>
-      <div class="blog-excerpt">A behind-the-scenes look at how I designed RevIQ — from schema design to churn detection triggers and 12 analytical queries that surface real business insights.</div>
-      <div class="blog-meta">
-        <span>Akingboye Ayomide</span>
-        <span>Coming Soon</span>
-      </div>
+    <a href="https://mishael.hashnode.dev/how-i-built-a-revenue-intelligence-system-using-pure-sql" target="_blank" style="text-decoration:none;">
+  <div class="blog-card fade-up">
+    <div class="blog-tag">SQL</div>
+    <div class="blog-title">How I Built a Revenue Intelligence System Using Pure SQL</div>
+    <div class="blog-excerpt">A behind-the-scenes look at how I designed RevIQ — from schema design to churn detection triggers and 12 analytical queries that surface real business insights.</div>
+    <div class="blog-meta">
+      <span>Akingboye Ayomide</span>
+      <span style="color:var(--accent3);">Read Now →</span>
     </div>
+  </div>
+</a>
 
-    <div class="blog-card fade-up">
-      <div class="blog-tag">Database</div>
-      <div class="blog-title">Window Functions Explained — With Real Revenue Examples</div>
-      <div class="blog-excerpt">LAG, RANK, NTILE and more — breaking down the most powerful SQL window functions using real examples from my RevIQ project.</div>
-      <div class="blog-meta">
-        <span>Akingboye Ayomide</span>
-        <span>Coming Soon</span>
-      </div>
+    <a href="https://mishael.hashnode.dev/window-functions-explained-with-real-revenue-examples" target="_blank" style="text-decoration:none;">
+  <div class="blog-card fade-up">
+    <div class="blog-tag">Database</div>
+    <div class="blog-title">Window Functions Explained — With Real Revenue Examples</div>
+    <div class="blog-excerpt">LAG, RANK, NTILE and more — breaking down the most powerful SQL window functions using real examples from my RevIQ project.</div>
+    <div class="blog-meta">
+      <span>Akingboye Ayomide</span>
+      <span style="color:var(--accent3);">Read Now →</span>
     </div>
+  </div>
+</a>
 
-    <div class="blog-card fade-up">
-      <div class="blog-tag">Career</div>
-      <div class="blog-title">From Student to Data Analyst — My Journey in Nigeria</div>
-      <div class="blog-excerpt">How I went from learning SQL basics to building production-grade database systems and advancing to the final stage of a competitive data program.</div>
-      <div class="blog-meta">
-        <span>Akingboye Ayomide</span>
-        <span>Coming Soon</span>
-      </div>
+    <a href="https://mishael.hashnode.dev/from-student-to-data-analyst-my-journey-in-nigeria" target="_blank" style="text-decoration:none;">
+  <div class="blog-card fade-up">
+    <div class="blog-tag">Career</div>
+    <div class="blog-title">From Student to Data Analyst — My Journey in Nigeria</div>
+    <div class="blog-excerpt">How I went from learning SQL basics to building production-grade database systems and advancing to the final stage of a competitive data program.</div>
+    <div class="blog-meta">
+      <span>Akingboye Ayomide</span>
+      <span style="color:var(--accent3);">Read Now →</span>
     </div>
+  </div>
+</a>
   </div>
 </section>
 
@@ -1874,6 +1932,13 @@ function toggleMenu() {
   hamburger.classList.toggle('active');
   mobileMenu.classList.toggle('active');
 }
+// Scroll progress bar
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / docHeight) * 100;
+  document.getElementById('scrollBar').style.width = scrollPercent + '%';
+});
 </script>
 <!-- BACK TO TOP -->
 <button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})" style="
