@@ -779,6 +779,36 @@ GROUP BY region;
 
   </div>
 </section>
+<!-- AI ASSISTANT -->
+<div class="ai-bot" id="aiBot">
+
+  <div class="ai-header">
+    AAM AI Assistant
+    <span onclick="toggleChat()">✕</span>
+  </div>
+
+  <div class="ai-messages" id="chatMessages">
+    <div class="bot-msg">
+      Hi 👋 Ask me about Akingboye's projects, SQL skills or experience.
+    </div>
+  </div>
+
+  <div class="ai-input-area">
+    <input
+      type="text"
+      id="userInput"
+      placeholder="Ask something..."
+    />
+
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+</div>
+
+<!-- FLOATING BUTTON -->
+<div class="ai-toggle" onclick="toggleChat()">
+  💬
+</div>
 <script src="script.js"></script>
 </body>
 </html>
