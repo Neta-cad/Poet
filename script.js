@@ -172,17 +172,7 @@ function runSQL() {
 
 }
 
-function toggleChat() {
-  const bot = document.getElementById("aiBot");
-
-  if (bot.style.display === "block") {
-    bot.style.display = "none";
-  } else {
-    bot.style.display = "block";
-  }
-}
-
-function sendMessage() {
+async function sendMessage() {
 
   const input = document.getElementById("userInput");
   const messages = document.getElementById("chatMessages");
@@ -196,643 +186,86 @@ function sendMessage() {
     <div class="user-msg">${userText}</div>
   `;
 
-  const msg = userText.toLowerCase();
-
-  let reply = "I can answer questions about SQL, analytics, projects, Power BI, GitHub and Revenue Intelligence Systems.";
-
-  // RESPONSES
-
-  if (msg.includes("sql")) {
-    reply = "Akingboye specializes in PostgreSQL, Supabase, analytical queries and revenue intelligence systems.";
-  }
-
-  else if (msg.includes("project")) {
-    reply = "One of the featured projects is the Revenue Intelligence System containing forecasting, churn analysis and cohort analytics.";
-  }
-
-  else if (msg.includes("power bi")) {
-    reply = "Akingboye uses Power BI for dashboarding and business intelligence reporting.";
-  }
-
-  else if (msg.includes("experience")) {
-    reply = "Akingboye is a Junior Data Analyst focused on transforming raw data into actionable insights.";
-  }
-
-  else if (
-    msg.includes("who is akingboye") ||
-    msg.includes("tell me about akingboye")
-  ) {
-    reply = "Akingboye is a data analyst and database developer focused on SQL systems, revenue intelligence and analytics engineering.";
-  }
-
-  else if (
-    msg.includes("what can you do") ||
-    msg.includes("who are you")
-  ) {
-    reply = "I'm Akingboye's AI assistant. I can explain projects, technical skills, analytics systems and SQL work.";
-  }
-
-  else if (
-    msg.includes("best project") ||
-    msg.includes("main project")
-  ) {
-    reply = "The flagship project is the Revenue Intelligence System — an advanced SQL analytics platform with forecasting, churn analysis and cohort tracking.";
-  }
-
-  else if (
-    msg.includes("revenue intelligence")
-  ) {
-    reply = "The Revenue Intelligence System was built using PostgreSQL and Supabase. It analyzes revenue growth, customer behavior, forecasting and business KPIs.";
-  }
-
-  else if (
-    msg.includes("why should we hire")
-  ) {
-    reply = "Akingboye combines technical SQL expertise with strong analytical thinking and modern dashboard development.";
-  }
-
-  else if (
-    msg.includes("what databases")
-  ) {
-    reply = "Akingboye primarily works with PostgreSQL and Supabase for scalable analytical systems.";
-  }
-
-  else if (
-    msg.includes("analytics")
-  ) {
-    reply = "Akingboye builds analytics systems focused on forecasting, KPI tracking, segmentation and business intelligence.";
-  }
-
-  else if (
-    msg.includes("future goals")
-  ) {
-    reply = "Akingboye aims to become a high-level analytics engineer building enterprise intelligence systems.";
-  }
-
-  else if (
-    msg.includes("experience level")
-  ) {
-    reply = "Akingboye is currently growing as a data analyst with strong hands-on SQL and analytics engineering experience.";
-  }
-
-  else if (
-    msg.includes("contact") ||
-    msg.includes("reach")
-  ) {
-    reply = "You can reach Akingboye through the contact section below on this portfolio.";
-  }
-
-  else if (
-    msg.includes("github")
-  ) {
-    reply = "Akingboye's GitHub contains SQL systems, analytics projects and database engineering work.";
-  }
-
-  else if (
-    msg.includes("ai")
-  ) {
-    reply = "This AI assistant was custom-built into the portfolio using JavaScript to create an interactive experience.";
-  }
-
-
-
-
-  else if (
-    msg.includes("hello") ||
-    msg.includes("hi") ||
-    msg.includes("hey")
-  ) {
-
-    const greetings = [
-      "Hello 👋 How can I help you today?",
-      "Hi there — ask me anything about Akingboye or his projects.",
-      "Hey 👋 I'm the AI assistant for this portfolio.",
-      "Welcome 🚀 Ask about projects, SQL, analytics or experience."
-    ];
-
-    reply = greetings[Math.floor(Math.random() * greetings.length)];
-  }
-
-// SMART AI RESPONSES
-
-if (
-  msg.includes("hello") ||
-  msg.includes("hi") ||
-  msg.includes("hey") ||
-  msg.includes("good morning") ||
-  msg.includes("good afternoon") ||
-  msg.includes("good evening")
-) {
-
-  const greetings = [
-    "Hello 👋 Welcome to Akingboye's portfolio.",
-    "Hi there 🚀 Ask me anything about projects, SQL or analytics.",
-    "Hey 👋 I'm the AI assistant for this portfolio.",
-    "Welcome 🔥 How can I help you today?",
-    "Hello 👨‍💻 Interested in analytics engineering or SQL systems?",
-    "Nice to meet you 👋"
-  ];
-
-  reply = greetings[Math.floor(Math.random() * greetings.length)];
-}
-
-else if (
-  msg.includes("how are you")
-) {
-  reply = "I'm doing great 🚀 Ready to talk about data, analytics and projects.";
-}
-
-else if (
-  msg.includes("thank you") ||
-  msg.includes("thanks")
-) {
-  reply = "You're welcome 👌";
-}
-
-else if (
-  msg.includes("bye") ||
-  msg.includes("goodbye")
-) {
-  reply = "Goodbye 👋 Thanks for visiting the portfolio.";
-}
-
-else if (
-  msg.includes("who made you")
-) {
-  reply = "I was custom-built by Mishael Akingboye using JavaScript.";
-}
-
-else if (
-  msg.includes("are you real")
-) {
-  reply = "I'm a portfolio AI assistant designed to answer questions about projects and technical skills.";
-}
-
-else if (
-  msg.includes("what is your name")
-) {
-  reply = "I'm Akingboye's AI Assistant.";
-}
-
-else if (
-  msg.includes("who is mishael") ||
-  msg.includes("who is akingboye") ||
-  msg.includes("tell me about mishael")
-) {
-  reply = "Mishael Akingboye is a data analyst and database developer focused on SQL systems, analytics engineering and revenue intelligence.";
-}
-
-else if (
-  msg.includes("skills") ||
-  msg.includes("what skills")
-) {
-  reply = "Akingboye specializes in SQL, PostgreSQL, Supabase, Power BI, data analytics, forecasting and dashboard systems.";
-}
-
-else if (
-  msg.includes("sql")
-) {
-  reply = "SQL is one of Akingboye's strongest skills, especially PostgreSQL analytics and revenue intelligence systems.";
-}
-
-else if (
-  msg.includes("power bi")
-) {
-  reply = "Power BI is used for interactive dashboards and executive reporting systems.";
-}
-
-else if (
-  msg.includes("python")
-) {
-  reply = "Python is used for analytics, automation and data processing workflows.";
-}
-
-else if (
-  msg.includes("database")
-) {
-  reply = "Akingboye works with PostgreSQL and Supabase to build scalable analytical database systems.";
-}
-
-else if (
-  msg.includes("analytics")
-) {
-  reply = "Akingboye builds analytics systems focused on KPIs, forecasting, segmentation and business intelligence.";
-}
-
-else if (
-  msg.includes("experience")
-) {
-  reply = "Akingboye is growing as a modern data analyst with strong SQL and analytics engineering experience.";
-}
-
-else if (
-  msg.includes("github")
-) {
-  reply = "The GitHub contains SQL systems, analytics projects and database engineering work.";
-}
-
-else if (
-  msg.includes("project")
-) {
-  reply = "Featured projects include the Revenue Intelligence System and multiple analytics case studies.";
-}
-
-else if (
-  msg.includes("revenue intelligence")
-) {
-  reply = "The Revenue Intelligence System is a PostgreSQL analytics platform with forecasting, churn analysis and KPI tracking.";
-}
-
-else if (
-  msg.includes("best project") ||
-  msg.includes("main project")
-) {
-  reply = "The flagship project is the Revenue Intelligence System.";
-}
-
-else if (
-  msg.includes("car insurance")
-) {
-  reply = "The Car Insurance Analytics project explored claim frequency, customer risk factors, household income patterns and insurance trends.";
-}
-
-else if (
-  msg.includes("hire")
-) {
-  reply = "Akingboye combines analytical thinking, SQL engineering and modern dashboard development.";
-}
-
-else if (
-  msg.includes("future")
-) {
-  reply = "The goal is to become a high-level analytics engineer building enterprise intelligence systems.";
-}
-
-else if (
-  msg.includes("contact")
-) {
-  reply = "You can contact Akingboye through the contact section below.";
-}
-
-else if (
-  msg.includes("joke")
-) {
-  reply = "Why do data analysts love SQL? Because they like relationships 😄";
-}
-
-else if (
-  msg.includes("love you")
-) {
-  reply = "😂 I'm just code, but thanks.";
-}
-
-else if (
-  msg.includes("ai")
-) {
-  reply = "This AI assistant was built into the portfolio using JavaScript.";
-}
-
-else if (msg.includes("data analyst")) {
-  reply = "Akingboye is building modern data analytics systems focused on SQL engineering and business intelligence.";
-}
-
-else if (msg.includes("future data analyst")) {
-  reply = "The future of data analytics combines SQL, AI, cloud engineering and business intelligence.";
-}
-
-else if (msg.includes("machine learning")) {
-  reply = "Akingboye is exploring machine learning concepts alongside analytics engineering.";
-}
-
-else if (msg.includes("dashboard")) {
-  reply = "Interactive dashboards help businesses monitor KPIs and make data-driven decisions.";
-}
-
-else if (msg.includes("kpi")) {
-  reply = "KPIs are important metrics used to measure business performance and growth.";
-}
-
-else if (msg.includes("forecast")) {
-  reply = "Forecasting helps businesses predict future revenue, growth and customer behavior.";
-}
-
-else if (msg.includes("business intelligence")) {
-  reply = "Business Intelligence transforms raw data into actionable insights.";
-}
-
-else if (msg.includes("cloud")) {
-  reply = "Cloud platforms are essential for scalable analytics and modern data systems.";
-}
-
-else if (msg.includes("supabase")) {
-  reply = "Supabase was used as the backend database platform for analytical systems.";
-}
-
-else if (msg.includes("postgresql")) {
-  reply = "PostgreSQL is one of the most powerful relational databases for analytics engineering.";
-}
-
-else if (msg.includes("visualization")) {
-  reply = "Data visualization makes complex insights easier to understand.";
-}
-
-else if (msg.includes("automation")) {
-  reply = "Automation improves data workflows and reduces repetitive tasks.";
-}
-
-else if (msg.includes("big data")) {
-  reply = "Big data technologies help process massive business datasets efficiently.";
-}
-
-else if (msg.includes("etl")) {
-  reply = "ETL pipelines are used to extract, transform and load business data.";
-}
-
-else if (msg.includes("data cleaning")) {
-  reply = "Data cleaning is critical for accurate analytics and reporting.";
-}
-
-else if (msg.includes("excel")) {
-  reply = "Excel remains an important tool for business reporting and quick analysis.";
-}
-
-else if (msg.includes("team")) {
-  reply = "Akingboye collaborates effectively and enjoys solving analytical problems.";
-}
-
-else if (msg.includes("problem solving")) {
-  reply = "Strong problem-solving is one of the key strengths behind the analytics projects.";
-}
-
-else if (msg.includes("why analytics")) {
-  reply = "Analytics helps businesses make smarter and faster decisions.";
-}
-
-else if (msg.includes("goal")) {
-  reply = "The long-term goal is to build enterprise-grade intelligence systems.";
-}
-
-else if (msg.includes("motivation")) {
-  reply = "Curiosity and problem-solving drive the passion for analytics engineering.";
-}
-
-else if (msg.includes("learning")) {
-  reply = "Continuous learning is important in the fast-changing tech industry.";
-}
-
-else if (msg.includes("career")) {
-  reply = "Akingboye is building a strong career in analytics engineering and data systems.";
-}
-
-else if (msg.includes("strength")) {
-  reply = "Technical SQL expertise and analytical thinking are major strengths.";
-}
-
-else if (msg.includes("weakness")) {
-  reply = "Like every growing engineer, continuous improvement is part of the journey.";
-}
-
-else if (msg.includes("internship")) {
-  reply = "Hands-on analytics projects help develop real-world experience.";
-}
-
-else if (msg.includes("remote")) {
-  reply = "Modern analytics teams often collaborate remotely using cloud technologies.";
-}
-
-else if (msg.includes("skills for analyst")) {
-  reply = "Important analyst skills include SQL, Power BI, Excel, Python and communication.";
-}
-
-else if (msg.includes("communication")) {
-  reply = "Communication is essential for explaining analytical insights clearly.";
-}
-
-else if (msg.includes("decision making")) {
-  reply = "Data-driven decision making improves business performance.";
-}
-
-else if (msg.includes("startup")) {
-  reply = "Analytics systems help startups understand growth and customer behavior.";
-}
-
-else if (msg.includes("enterprise")) {
-  reply = "Enterprise analytics focuses on scalable data systems and intelligence platforms.";
-}
-
-else if (msg.includes("revenue")) {
-  reply = "Revenue analytics helps businesses monitor growth and profitability.";
-}
-
-else if (msg.includes("customer")) {
-  reply = "Customer analytics reveals behavior patterns and retention trends.";
-}
-
-else if (msg.includes("churn")) {
-  reply = "Churn analysis helps businesses understand customer loss patterns.";
-}
-
-else if (msg.includes("cohort")) {
-  reply = "Cohort analysis tracks customer groups over time for deeper insights.";
-}
-
-else if (msg.includes("data engineer")) {
-  reply = "Data engineering focuses on building scalable systems for processing data.";
-}
-
-else if (msg.includes("analytics engineer")) {
-  reply = "Analytics engineering combines software engineering and business analytics.";
-}
-
-else if (msg.includes("technology")) {
-  reply = "Modern technology is transforming analytics and business intelligence.";
-}
-
-else if (msg.includes("innovation")) {
-  reply = "Innovation drives better analytical systems and smarter businesses.";
-}
-
-else if (msg.includes("performance")) {
-  reply = "Performance optimization is important in analytical databases.";
-}
-
-else if (msg.includes("query")) {
-  reply = "Optimized SQL queries improve analytics performance significantly.";
-}
-
-else if (msg.includes("database design")) {
-  reply = "Database design affects scalability, speed and analytical accuracy.";
-}
-
-else if (msg.includes("api")) {
-  reply = "APIs help connect applications and analytical systems together.";
-}
-
-else if (msg.includes("frontend")) {
-  reply = "Frontend systems improve user interaction and visualization.";
-}
-
-else if (msg.includes("backend")) {
-  reply = "Backend systems power databases, analytics and application logic.";
-}
-
-else if (msg.includes("javascript")) {
-  reply = "JavaScript powers the interactive features on this portfolio.";
-}
-
-else if (msg.includes("website")) {
-  reply = "This portfolio website was custom-designed and developed from scratch.";
-}
-
-else if (msg.includes("portfolio")) {
-  reply = "This portfolio showcases analytics projects, SQL systems and technical skills.";
-}
-
-else if (msg.includes("challenge")) {
-  reply = "Every analytics project presents unique technical and business challenges.";
-}
-
-else if (msg.includes("solution")) {
-  reply = "Strong analytical solutions combine data, logic and business understanding.";
-}
-
-else if (msg.includes("industry")) {
-  reply = "Data analytics is transforming industries worldwide.";
-}
-
-else if (msg.includes("finance")) {
-  reply = "Financial analytics helps businesses track revenue and profitability.";
-}
-
-else if (msg.includes("insurance")) {
-  reply = "Insurance analytics helps identify customer risk and claim trends.";
-}
-
-else if (msg.includes("healthcare")) {
-  reply = "Healthcare analytics improves operational efficiency and patient insights.";
-}
-
-else if (msg.includes("retail")) {
-  reply = "Retail analytics helps businesses understand customer purchasing behavior.";
-}
-
-else if (msg.includes("future of ai")) {
-  reply = "AI will continue transforming analytics, automation and decision-making.";
-}
-
-else if (msg.includes("future of sql")) {
-  reply = "SQL remains one of the most important technologies in data analytics.";
-}
-
-else if (msg.includes("coding")) {
-  reply = "Coding enables automation, analytics and intelligent applications.";
-}
-
-else if (msg.includes("smart")) {
-  reply = "This AI assistant was designed to provide smart portfolio interactions.";
-}
-
-else if (msg.includes("fun fact")) {
-  reply = "Fun fact 🚀 SQL has remained one of the top technologies in data careers for decades.";
-}
-
-else if (msg.includes("inspiration")) {
-  reply = "Building intelligent systems and solving business problems is a major inspiration.";
-}
-
-else if (msg.includes("leadership")) {
-  reply = "Leadership in tech involves communication, innovation and problem-solving.";
-}
-
-else if (msg.includes("success")) {
-  reply = "Success in analytics comes from consistency, curiosity and continuous learning.";
-}
-
-else if (msg.includes("growth")) {
-  reply = "Growth comes from building real projects and solving practical problems.";
-}
-
-else if (msg.includes("hardworking")) {
-  reply = "Strong dedication and consistent learning drive technical growth.";
-}
-
-else if (msg.includes("passion")) {
-  reply = "There is strong passion for analytics engineering and intelligent systems.";
-}
-
-else if (msg.includes("creative")) {
-  reply = "Creativity is important for building innovative analytics solutions.";
-}
-
-else if (msg.includes("mentor")) {
-  reply = "Learning from experienced professionals accelerates technical growth.";
-}
-
-else if (msg.includes("technology trends")) {
-  reply = "AI, cloud analytics and automation are shaping future technology trends.";
-}
-
-else if (msg.includes("data science")) {
-  reply = "Data science combines analytics, statistics and machine learning.";
-}
-
-else if (msg.includes("statistics")) {
-  reply = "Statistics is essential for understanding patterns and analytical insights.";
-}
-
-else if (msg.includes("open source")) {
-  reply = "Open-source technologies power many modern analytics systems.";
-}
-
-else if (msg.includes("motivate me")) {
-  reply = "Consistency beats talent when talent stops learning 🚀";
-}
-
-else if (msg.includes("tell me something")) {
-  reply = "Analytics engineering is one of the fastest-growing fields in technology.";
-}
-
-else if (msg.includes("random")) {
-  reply = "Random fact 🚀 PostgreSQL is widely used for enterprise analytics systems.";
-}
-
-else if (
-  msg.includes("what can you do")
-) {
-  reply = "I can explain projects, analytics systems, technical skills, SQL work and portfolio information.";
-}
-
-else {
-  reply = "I may not understand that fully yet, but I can answer questions about analytics, SQL, databases, Power BI, projects and Akingboye's experience.";
-}
-
-
-
-  // BOT MESSAGE
-  const typingId = Date.now();
-
-messages.innerHTML += `
-  <div class="bot-msg typing" id="typing-${typingId}">
-    Analyst AI is typing...
-  </div>
-`;
-
-messages.scrollTop = messages.scrollHeight;
-
-setTimeout(() => {
-
-  document.getElementById(`typing-${typingId}`).remove();
+  input.value = "";
 
   messages.innerHTML += `
-    <div class="bot-msg">${reply}</div>
+    <div class="bot-msg typing" id="typing">
+      Analyst AI is thinking...
+    </div>
   `;
 
   messages.scrollTop = messages.scrollHeight;
 
-}, 1200);
+  try {
 
-  input.value = "";
+    const response = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyALrLNW_1HK87y5b0eTvu3E3mC20jHWaaQ",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [
+                {
+                  text:
+`You are Analyst AI for Mishael Akingboye's portfolio.
+
+You are intelligent, professional, friendly and conversational.
+
+You help recruiters and visitors understand:
+- Data Analytics
+- SQL
+- PostgreSQL
+- Power BI
+- Revenue Intelligence
+- Analytics Engineering
+- Projects
+- Career goals
+
+Always sound modern and smart.
+
+User message: ${userText}`
+                }
+              ]
+            }
+          ]
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    document.getElementById("typing").remove();
+
+    const reply =
+      data.candidates[0].content.parts[0].text;
+
+    messages.innerHTML += `
+      <div class="bot-msg">${reply}</div>
+    `;
+
+    messages.scrollTop = messages.scrollHeight;
+
+  } catch (error) {
+
+    document.getElementById("typing").remove();
+
+    messages.innerHTML += `
+      <div class="bot-msg">
+        AI temporarily unavailable.
+      </div>
+    `;
+
+  }
+
 }
+
+
+
+
 const ctx = document.getElementById('analyticsChart');
 
 new Chart(ctx, {
