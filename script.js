@@ -1025,3 +1025,4 @@ new Chart(forecastCtx, {
     }
   }
 });
+
