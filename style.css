@@ -1344,3 +1344,74 @@ body.light nav {
   }
 
 }
+.typing {
+  opacity: 0.7;
+  font-style: italic;
+  animation: blinkTyping 1s infinite;
+}
+
+@keyframes blinkTyping {
+  0%,100%{
+    opacity:0.4;
+  }
+
+  50%{
+    opacity:1;
+  }
+}
+#analyticsChart{
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:20px;
+  margin-top:40px;
+}
+/* AI STARTUP EFFECT */
+
+.hero::before{
+  content:'';
+  position:absolute;
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle,
+  rgba(0,212,255,0.18),
+  transparent 70%);
+  top:-250px;
+  right:-150px;
+  filter:blur(40px);
+  animation: floatGlow 8s ease-in-out infinite;
+}
+
+.hero::after{
+  content:'';
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle,
+  rgba(124,58,237,0.18),
+  transparent 70%);
+  bottom:-200px;
+  left:-100px;
+  filter:blur(50px);
+  animation: floatGlow2 10s ease-in-out infinite;
+}
+
+@keyframes floatGlow{
+  0%,100%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(30px);
+  }
+}
+
+@keyframes floatGlow2{
+  0%,100%{
+    transform:translateX(0px);
+  }
+
+  50%{
+    transform:translateX(40px);
+  }
+}

@@ -809,15 +809,78 @@ else {
 
 
   // BOT MESSAGE
-  setTimeout(() => {
+  const typingId = Date.now();
 
-    messages.innerHTML += `
-      <div class="bot-msg">${reply}</div>
-    `;
+messages.innerHTML += `
+  <div class="bot-msg typing" id="typing-${typingId}">
+    Analyst AI is typing...
+  </div>
+`;
 
-    messages.scrollTop = messages.scrollHeight;
+messages.scrollTop = messages.scrollHeight;
 
-  }, 500);
+setTimeout(() => {
+
+  document.getElementById(`typing-${typingId}`).remove();
+
+  messages.innerHTML += `
+    <div class="bot-msg">${reply}</div>
+  `;
+
+  messages.scrollTop = messages.scrollHeight;
+
+}, 1200);
 
   input.value = "";
+}
+const ctx = document.getElementById('analyticsChart');
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+    datasets: [{
+      label: 'Revenue Growth',
+      data: [12,19,15,25,32,41],
+      borderColor: '#00d4ff',
+      backgroundColor: 'rgba(0,212,255,0.15)',
+      tension: 0.4,
+      fill: true
+    }]
+  },
+
+  options: {
+    responsive:true,
+
+    plugins:{
+      legend:{
+        labels:{
+          color:'white'
+        }
+      }
+    },
+
+    scales:{
+      x:{
+        ticks:{ color:'#94a3b8' }
+      },
+
+      y:{
+        ticks:{ color:'#94a3b8' }
+      }
+    }
+  }
+});
+function toggleRecruiterMode(){
+
+  document.body.classList.toggle('recruiter-mode');
+
+  const btn = document.querySelector('.recruiter-btn');
+
+  if(document.body.classList.contains('recruiter-mode')){
+    btn.innerHTML = '✅ Exit Recruiter Mode';
+  } else {
+    btn.innerHTML = '⭐ Recruiter Mode';
+  }
+
 }
