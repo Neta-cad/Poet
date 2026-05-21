@@ -381,92 +381,105 @@ function toggleChat(){
 
 }
 
-async function sendMessage(){
+// AI Assistant
+const GROQ_API_KEY = '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';
 
-  const input = document.getElementById("userInput");
-  const messages = document.getElementById("chatMessages");
+const systemContext = `You are AAM AI Assistant — the personal AI of Akingboye Ayomide Mishael, a Junior Data Analyst based in Lagos, Nigeria.
 
-  const userText = input.value.trim();
+About Mishael:
+- Junior Data Analyst with 3+ years learning data analytics
+- Proficient in SQL, Power BI and Excel
+- Built RemoteHustleDB — a Master Operational Database with 10 tables on PostgreSQL/Supabase
+- Built RevIQ — a Revenue Intelligence System with 12 tables, materialized views, functions, triggers and 12 analytical queries
+- Advanced to Final Stage of Remote Hustle Competition — Internship Pathway
+- Holds Data Analytics Certificate from Quantum Analytics
+- Student at National Open University of Nigeria (NOUN)
+- Email: akingboyeayomide29@gmail.com
+- LinkedIn: linkedin.com/in/akingboye-ayomide
+- GitHub: github.com/Neta-cad
 
-  if(!userText) return;
+You can answer questions about:
+- Mishael's projects, skills and experience
+- SQL, databases, data analytics
+- Power BI, Excel
+- General data science questions
+- Career advice for data analysts
 
-  messages.innerHTML += `
-    <div class="user-msg">${userText}</div>
-  `;
+Be friendly, professional and helpful. Keep responses concise.`;
 
-  input.value = "";
-
-  messages.innerHTML += `
-    <div class="bot-msg typing" id="typing">
-      Analyst AI is thinking...
-    </div>
-  `;
-
-  messages.scrollTop = messages.scrollHeight;
-
-  try{
-
-    const response = await fetch(
-  "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=AIzaSyBQsxcUzyhVzNpUCJEymKLoLaF78JquKeI",
-      {
-        method:"POST",
-
-        headers:{
-          "Content-Type":"application/json"
-        },
-
-        body:JSON.stringify({
-          contents:[
-            {
-              parts:[
-                {
-                  text:`You are Analyst AI for Mishael Akingboye's portfolio.
-
-You are smart, modern, professional and conversational.
-
-Answer clearly and naturally.
-
-User: ${userText}`
-                }
-              ]
-            }
-          ]
-        })
-      }
-    );
-
-    const data = await response.json();
-    console.log(data);
-
-    document.getElementById("typing").remove();
-
-    let reply = "AI unavailable.";
-
-    if(
-      data.candidates &&
-      data.candidates[0]
-    ){
-      reply =
-      data.candidates[0]
-      .content.parts[0].text;
-    }
-
-    messages.innerHTML += `
-      <div class="bot-msg">${reply}</div>
-    `;
-
-    messages.scrollTop =
-    messages.scrollHeight;
-
-  }catch(error){
-
-    document.getElementById("typing").remove();
-
-    messages.innerHTML += `
-      <div class="bot-msg">
-        Connection error.
-      </div>
-    `;
+function toggleAI() {
+  const aiWindow = document.getElementById('aiWindow');
+  if (aiWindow.style.display === 'none' || aiWindow.style.display === '') {
+    aiWindow.style.display = 'flex';
+    aiWindow.style.flexDirection = 'column';
+    document.getElementById('aiInput').focus();
+  } else {
+    aiWindow.style.display = 'none';
   }
 }
 
+async function sendAIMessage() {
+  const input = document.getElementById('aiInput');
+  const messages = document.getElementById('aiMessages');
+  const userMessage = input.value.trim();
+  if (!userMessage) return;
+
+  messages.innerHTML += `
+    <div style="background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.2);border-radius:12px 12px 0 12px;padding:10px 14px;font-size:0.83rem;color:var(--text);max-width:85%;align-self:flex-end;">
+      ${userMessage}
+    </div>`;
+  input.value = '';
+  messages.scrollTop = messages.scrollHeight;
+
+  messages.innerHTML += `
+    <div id="typingIndicator" style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.15);border-radius:12px 12px 12px 0;padding:10px 14px;font-size:0.83rem;color:var(--muted);max-width:85%;">
+      Analyzing... ✨
+    </div>`;
+  messages.scrollTop = messages.scrollHeight;
+
+  try {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${GROQ_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: 'llama-3.3-70b-versatile',
+        max_tokens: 300,
+        messages: [
+          { role: 'system', content: systemContext },
+          { role: 'user', content: userMessage }
+        ]
+      })
+    });
+
+    const data = await response.json();
+    if (!data.choices || !data.choices[0]) {
+  throw new Error(JSON.stringify(data));
+}
+const reply = data.choices[0].message.content;
+
+    document.getElementById('typingIndicator').remove();
+
+    const botDiv = document.createElement('div');
+    botDiv.style.cssText = `background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.15);border-radius:12px 12px 12px 0;padding:10px 14px;font-size:0.83rem;color:var(--text);max-width:85%;`;
+    messages.appendChild(botDiv);
+
+    let i = 0;
+    const typing = setInterval(() => {
+      botDiv.textContent = reply.substring(0, i);
+      i++;
+      messages.scrollTop = messages.scrollHeight;
+      if (i > reply.length) clearInterval(typing);
+    }, 20);
+
+  } catch (error) {
+    document.getElementById('typingIndicator').remove();
+    messages.innerHTML += `
+      <div style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);border-radius:12px 12px 12px 0;padding:10px 14px;font-size:0.83rem;color:#ef4444;max-width:85%;">
+        Error: ${error.message}
+      </div>`;
+  }
+  messages.scrollTop = messages.scrollHeight;
+}
