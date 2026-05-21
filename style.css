@@ -1267,4 +1267,80 @@ body.light nav {
   cursor: pointer;
   font-weight: 700;
 }
+/* AI BUTTON */
 
+#aiButton{
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(10,15,25,0.9);
+  border: 2px solid rgba(0,212,255,0.35);
+
+  box-shadow:
+    0 0 25px rgba(0,212,255,0.35),
+    0 0 60px rgba(0,212,255,0.15);
+
+  overflow: hidden;
+
+  transition: 0.35s;
+}
+
+#aiButton:hover{
+  transform: scale(1.08);
+  box-shadow:
+    0 0 35px rgba(0,212,255,0.5),
+    0 0 80px rgba(0,212,255,0.2);
+}
+
+#aiButton img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Pulse Animation */
+
+.ai-pulse{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(0,212,255,0.5);
+  animation: pulseAI 2s infinite;
+}
+
+@keyframes pulseAI{
+  0%{
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100%{
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  #aiButton{
+    width: 70px;
+    height: 70px;
+    bottom: 18px;
+    right: 18px;
+  }
+
+}
