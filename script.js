@@ -492,6 +492,310 @@ else if (
   reply = "This AI assistant was built into the portfolio using JavaScript.";
 }
 
+else if (msg.includes("data analyst")) {
+  reply = "Akingboye is building modern data analytics systems focused on SQL engineering and business intelligence.";
+}
+
+else if (msg.includes("future data analyst")) {
+  reply = "The future of data analytics combines SQL, AI, cloud engineering and business intelligence.";
+}
+
+else if (msg.includes("machine learning")) {
+  reply = "Akingboye is exploring machine learning concepts alongside analytics engineering.";
+}
+
+else if (msg.includes("dashboard")) {
+  reply = "Interactive dashboards help businesses monitor KPIs and make data-driven decisions.";
+}
+
+else if (msg.includes("kpi")) {
+  reply = "KPIs are important metrics used to measure business performance and growth.";
+}
+
+else if (msg.includes("forecast")) {
+  reply = "Forecasting helps businesses predict future revenue, growth and customer behavior.";
+}
+
+else if (msg.includes("business intelligence")) {
+  reply = "Business Intelligence transforms raw data into actionable insights.";
+}
+
+else if (msg.includes("cloud")) {
+  reply = "Cloud platforms are essential for scalable analytics and modern data systems.";
+}
+
+else if (msg.includes("supabase")) {
+  reply = "Supabase was used as the backend database platform for analytical systems.";
+}
+
+else if (msg.includes("postgresql")) {
+  reply = "PostgreSQL is one of the most powerful relational databases for analytics engineering.";
+}
+
+else if (msg.includes("visualization")) {
+  reply = "Data visualization makes complex insights easier to understand.";
+}
+
+else if (msg.includes("automation")) {
+  reply = "Automation improves data workflows and reduces repetitive tasks.";
+}
+
+else if (msg.includes("big data")) {
+  reply = "Big data technologies help process massive business datasets efficiently.";
+}
+
+else if (msg.includes("etl")) {
+  reply = "ETL pipelines are used to extract, transform and load business data.";
+}
+
+else if (msg.includes("data cleaning")) {
+  reply = "Data cleaning is critical for accurate analytics and reporting.";
+}
+
+else if (msg.includes("excel")) {
+  reply = "Excel remains an important tool for business reporting and quick analysis.";
+}
+
+else if (msg.includes("team")) {
+  reply = "Akingboye collaborates effectively and enjoys solving analytical problems.";
+}
+
+else if (msg.includes("problem solving")) {
+  reply = "Strong problem-solving is one of the key strengths behind the analytics projects.";
+}
+
+else if (msg.includes("why analytics")) {
+  reply = "Analytics helps businesses make smarter and faster decisions.";
+}
+
+else if (msg.includes("goal")) {
+  reply = "The long-term goal is to build enterprise-grade intelligence systems.";
+}
+
+else if (msg.includes("motivation")) {
+  reply = "Curiosity and problem-solving drive the passion for analytics engineering.";
+}
+
+else if (msg.includes("learning")) {
+  reply = "Continuous learning is important in the fast-changing tech industry.";
+}
+
+else if (msg.includes("career")) {
+  reply = "Akingboye is building a strong career in analytics engineering and data systems.";
+}
+
+else if (msg.includes("strength")) {
+  reply = "Technical SQL expertise and analytical thinking are major strengths.";
+}
+
+else if (msg.includes("weakness")) {
+  reply = "Like every growing engineer, continuous improvement is part of the journey.";
+}
+
+else if (msg.includes("internship")) {
+  reply = "Hands-on analytics projects help develop real-world experience.";
+}
+
+else if (msg.includes("remote")) {
+  reply = "Modern analytics teams often collaborate remotely using cloud technologies.";
+}
+
+else if (msg.includes("skills for analyst")) {
+  reply = "Important analyst skills include SQL, Power BI, Excel, Python and communication.";
+}
+
+else if (msg.includes("communication")) {
+  reply = "Communication is essential for explaining analytical insights clearly.";
+}
+
+else if (msg.includes("decision making")) {
+  reply = "Data-driven decision making improves business performance.";
+}
+
+else if (msg.includes("startup")) {
+  reply = "Analytics systems help startups understand growth and customer behavior.";
+}
+
+else if (msg.includes("enterprise")) {
+  reply = "Enterprise analytics focuses on scalable data systems and intelligence platforms.";
+}
+
+else if (msg.includes("revenue")) {
+  reply = "Revenue analytics helps businesses monitor growth and profitability.";
+}
+
+else if (msg.includes("customer")) {
+  reply = "Customer analytics reveals behavior patterns and retention trends.";
+}
+
+else if (msg.includes("churn")) {
+  reply = "Churn analysis helps businesses understand customer loss patterns.";
+}
+
+else if (msg.includes("cohort")) {
+  reply = "Cohort analysis tracks customer groups over time for deeper insights.";
+}
+
+else if (msg.includes("data engineer")) {
+  reply = "Data engineering focuses on building scalable systems for processing data.";
+}
+
+else if (msg.includes("analytics engineer")) {
+  reply = "Analytics engineering combines software engineering and business analytics.";
+}
+
+else if (msg.includes("technology")) {
+  reply = "Modern technology is transforming analytics and business intelligence.";
+}
+
+else if (msg.includes("innovation")) {
+  reply = "Innovation drives better analytical systems and smarter businesses.";
+}
+
+else if (msg.includes("performance")) {
+  reply = "Performance optimization is important in analytical databases.";
+}
+
+else if (msg.includes("query")) {
+  reply = "Optimized SQL queries improve analytics performance significantly.";
+}
+
+else if (msg.includes("database design")) {
+  reply = "Database design affects scalability, speed and analytical accuracy.";
+}
+
+else if (msg.includes("api")) {
+  reply = "APIs help connect applications and analytical systems together.";
+}
+
+else if (msg.includes("frontend")) {
+  reply = "Frontend systems improve user interaction and visualization.";
+}
+
+else if (msg.includes("backend")) {
+  reply = "Backend systems power databases, analytics and application logic.";
+}
+
+else if (msg.includes("javascript")) {
+  reply = "JavaScript powers the interactive features on this portfolio.";
+}
+
+else if (msg.includes("website")) {
+  reply = "This portfolio website was custom-designed and developed from scratch.";
+}
+
+else if (msg.includes("portfolio")) {
+  reply = "This portfolio showcases analytics projects, SQL systems and technical skills.";
+}
+
+else if (msg.includes("challenge")) {
+  reply = "Every analytics project presents unique technical and business challenges.";
+}
+
+else if (msg.includes("solution")) {
+  reply = "Strong analytical solutions combine data, logic and business understanding.";
+}
+
+else if (msg.includes("industry")) {
+  reply = "Data analytics is transforming industries worldwide.";
+}
+
+else if (msg.includes("finance")) {
+  reply = "Financial analytics helps businesses track revenue and profitability.";
+}
+
+else if (msg.includes("insurance")) {
+  reply = "Insurance analytics helps identify customer risk and claim trends.";
+}
+
+else if (msg.includes("healthcare")) {
+  reply = "Healthcare analytics improves operational efficiency and patient insights.";
+}
+
+else if (msg.includes("retail")) {
+  reply = "Retail analytics helps businesses understand customer purchasing behavior.";
+}
+
+else if (msg.includes("future of ai")) {
+  reply = "AI will continue transforming analytics, automation and decision-making.";
+}
+
+else if (msg.includes("future of sql")) {
+  reply = "SQL remains one of the most important technologies in data analytics.";
+}
+
+else if (msg.includes("coding")) {
+  reply = "Coding enables automation, analytics and intelligent applications.";
+}
+
+else if (msg.includes("smart")) {
+  reply = "This AI assistant was designed to provide smart portfolio interactions.";
+}
+
+else if (msg.includes("fun fact")) {
+  reply = "Fun fact 🚀 SQL has remained one of the top technologies in data careers for decades.";
+}
+
+else if (msg.includes("inspiration")) {
+  reply = "Building intelligent systems and solving business problems is a major inspiration.";
+}
+
+else if (msg.includes("leadership")) {
+  reply = "Leadership in tech involves communication, innovation and problem-solving.";
+}
+
+else if (msg.includes("success")) {
+  reply = "Success in analytics comes from consistency, curiosity and continuous learning.";
+}
+
+else if (msg.includes("growth")) {
+  reply = "Growth comes from building real projects and solving practical problems.";
+}
+
+else if (msg.includes("hardworking")) {
+  reply = "Strong dedication and consistent learning drive technical growth.";
+}
+
+else if (msg.includes("passion")) {
+  reply = "There is strong passion for analytics engineering and intelligent systems.";
+}
+
+else if (msg.includes("creative")) {
+  reply = "Creativity is important for building innovative analytics solutions.";
+}
+
+else if (msg.includes("mentor")) {
+  reply = "Learning from experienced professionals accelerates technical growth.";
+}
+
+else if (msg.includes("technology trends")) {
+  reply = "AI, cloud analytics and automation are shaping future technology trends.";
+}
+
+else if (msg.includes("data science")) {
+  reply = "Data science combines analytics, statistics and machine learning.";
+}
+
+else if (msg.includes("statistics")) {
+  reply = "Statistics is essential for understanding patterns and analytical insights.";
+}
+
+else if (msg.includes("open source")) {
+  reply = "Open-source technologies power many modern analytics systems.";
+}
+
+else if (msg.includes("motivate me")) {
+  reply = "Consistency beats talent when talent stops learning 🚀";
+}
+
+else if (msg.includes("tell me something")) {
+  reply = "Analytics engineering is one of the fastest-growing fields in technology.";
+}
+
+else if (msg.includes("random")) {
+  reply = "Random fact 🚀 PostgreSQL is widely used for enterprise analytics systems.";
+}
+
 else if (
   msg.includes("what can you do")
 ) {
@@ -501,6 +805,8 @@ else if (
 else {
   reply = "I may not understand that fully yet, but I can answer questions about analytics, SQL, databases, Power BI, projects and Akingboye's experience.";
 }
+
+
 
   // BOT MESSAGE
   setTimeout(() => {
