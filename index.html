@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Akingboye Ayomide Mishael | Data Analyst</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 
 </head>
@@ -92,6 +93,7 @@
   <div class="nav-logo">AAM</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#dashboard">Dashboard</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#certifications">Certifications</a></li>
@@ -248,7 +250,54 @@
   </div>
 </div>
 <div class="divider"></div>
+<!-- ANALYTICS DASHBOARD -->
+<section id="dashboard" style="background: var(--surface);">
+  <div class="section-label">Live Data</div>
+  <h2 class="section-title">Analytics Dashboard</h2>
+  <p class="section-sub">Real revenue intelligence metrics from my RevIQ system — the kind of insights I build for businesses.</p>
 
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:24px;">
+    
+    <!-- Revenue Chart -->
+    <div class="skill-card fade-up">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(0,212,255,0.1)">📈</div>
+        <div class="skill-card-title">Monthly Revenue Growth</div>
+      </div>
+      <canvas id="revenueChart" height="200"></canvas>
+    </div>
+
+    <!-- Pipeline Chart -->
+    <div class="skill-card fade-up">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(124,58,237,0.1)">🔵</div>
+        <div class="skill-card-title">Pipeline by Stage</div>
+      </div>
+      <canvas id="pipelineChart" height="200"></canvas>
+    </div>
+
+    <!-- Churn Chart -->
+    <div class="skill-card fade-up">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(16,185,129,0.1)">⚠️</div>
+        <div class="skill-card-title">Churn vs Retention</div>
+      </div>
+      <canvas id="churnChart" height="200"></canvas>
+    </div>
+
+    <!-- Forecast Chart -->
+    <div class="skill-card fade-up">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(251,191,36,0.1)">🎯</div>
+        <div class="skill-card-title">Revenue Forecast vs Actual</div>
+      </div>
+      <canvas id="forecastChart" height="200"></canvas>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-label">What I Know</div>
@@ -387,7 +436,7 @@
     </div>
 
     <!-- Project 2 -->
-    <div class="project-card fade-up">
+    <div class="-card fade-up">
       <div class="project-badge stage2">Stage 2 · Remote Hustle</div>
       <div style="
   width: 100%;
@@ -437,7 +486,6 @@
       </div>
     </div>
   </div>
-  <canvas id="analyticsChart"></canvas>
 </section>
 
 <div class="divider"></div>

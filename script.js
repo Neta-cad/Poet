@@ -884,3 +884,144 @@ function toggleRecruiterMode(){
   }
 
 }
+// Analytics Dashboard Charts
+const chartDefaults = {
+  color: '#94a3b8',
+  borderColor: '#1e293b',
+};
+
+// 1. Revenue Chart
+const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+new Chart(revenueCtx, {
+  type: 'line',
+  data: {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
+    datasets: [{
+      label: 'Revenue ($)',
+      data: [1900000, 1520000, 1650000, 906000, 558000, 491000, 444000, 368000, 392000, 608000, 524000],
+      borderColor: '#00d4ff',
+      backgroundColor: 'rgba(0,212,255,0.08)',
+      borderWidth: 2,
+      pointBackgroundColor: '#00d4ff',
+      pointRadius: 4,
+      fill: true,
+      tension: 0.4
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#94a3b8', font: { size: 11 } } }
+    },
+    scales: {
+      x: { ticks: { color: '#94a3b8', font: { size: 10 } }, grid: { color: '#1e293b' } },
+      y: { ticks: { color: '#94a3b8', font: { size: 10 } }, grid: { color: '#1e293b' } }
+    }
+  }
+});
+
+// 2. Pipeline Chart
+const pipelineCtx = document.getElementById('pipelineChart').getContext('2d');
+new Chart(pipelineCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Prospecting', 'Qualification', 'Proposal', 'Negotiation', 'Closed Won', 'Closed Lost'],
+    datasets: [{
+      data: [8, 12, 25, 18, 120, 15],
+      backgroundColor: [
+        'rgba(0,212,255,0.8)',
+        'rgba(124,58,237,0.8)',
+        'rgba(16,185,129,0.8)',
+        'rgba(251,191,36,0.8)',
+        'rgba(34,197,94,0.8)',
+        'rgba(239,68,68,0.8)'
+      ],
+      borderColor: '#0e1420',
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { 
+        position: 'bottom',
+        labels: { color: '#94a3b8', font: { size: 10 }, padding: 8 }
+      }
+    }
+  }
+});
+
+// 3. Churn Chart
+const churnCtx = document.getElementById('churnChart').getContext('2d');
+new Chart(churnCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
+    datasets: [
+      {
+        label: 'Retained',
+        data: [85, 88, 90, 87, 82, 86, 89, 91, 88, 85, 87],
+        backgroundColor: 'rgba(16,185,129,0.7)',
+        borderRadius: 4
+      },
+      {
+        label: 'Churned',
+        data: [15, 12, 10, 13, 18, 14, 11, 9, 12, 15, 13],
+        backgroundColor: 'rgba(239,68,68,0.7)',
+        borderRadius: 4
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#94a3b8', font: { size: 11 } } }
+    },
+    scales: {
+      x: { ticks: { color: '#94a3b8', font: { size: 10 } }, grid: { color: '#1e293b' } },
+      y: { ticks: { color: '#94a3b8', font: { size: 10 } }, grid: { color: '#1e293b' } }
+    }
+  }
+});
+
+// 4. Forecast Chart
+const forecastCtx = document.getElementById('forecastChart').getContext('2d');
+new Chart(forecastCtx, {
+  type: 'line',
+  data: {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
+    datasets: [
+      {
+        label: 'Forecasted',
+        data: [1800000, 1450000, 1580000, 980000, 1100000, 1150000, 1280000, 1350000, 1420000, 1550000, 1650000],
+        borderColor: '#7c3aed',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        pointBackgroundColor: '#7c3aed',
+        pointRadius: 4,
+        fill: false,
+        tension: 0.4
+      },
+      {
+        label: 'Actual',
+        data: [1900000, 1520000, 1650000, 906000, 558000, 491000, 444000, 368000, 392000, 608000, 524000],
+        borderColor: '#00d4ff',
+        borderWidth: 2,
+        pointBackgroundColor: '#00d4ff',
+        pointRadius: 4,
+        fill: false,
+        tension: 0.4
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#94a3b8', font: { size: 11 } } }
+    },
+    scales: {
+      x: { ticks: { color: '#94a3b8', font: { size: 10 } }, grid: { color: '#1e293b' } },
+      y: { ticks: { color: '#94a3b8', font: { size: 10 } }, grid: { color: '#1e293b' } }
+    }
+  }
+});
