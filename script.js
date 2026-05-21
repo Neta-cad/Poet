@@ -294,6 +294,9 @@ function sendMessage() {
     reply = "This AI assistant was custom-built into the portfolio using JavaScript to create an interactive experience.";
   }
 
+
+
+
   else if (
     msg.includes("hello") ||
     msg.includes("hi") ||
@@ -309,6 +312,195 @@ function sendMessage() {
 
     reply = greetings[Math.floor(Math.random() * greetings.length)];
   }
+
+// SMART AI RESPONSES
+
+if (
+  msg.includes("hello") ||
+  msg.includes("hi") ||
+  msg.includes("hey") ||
+  msg.includes("good morning") ||
+  msg.includes("good afternoon") ||
+  msg.includes("good evening")
+) {
+
+  const greetings = [
+    "Hello 👋 Welcome to Akingboye's portfolio.",
+    "Hi there 🚀 Ask me anything about projects, SQL or analytics.",
+    "Hey 👋 I'm the AI assistant for this portfolio.",
+    "Welcome 🔥 How can I help you today?",
+    "Hello 👨‍💻 Interested in analytics engineering or SQL systems?",
+    "Nice to meet you 👋"
+  ];
+
+  reply = greetings[Math.floor(Math.random() * greetings.length)];
+}
+
+else if (
+  msg.includes("how are you")
+) {
+  reply = "I'm doing great 🚀 Ready to talk about data, analytics and projects.";
+}
+
+else if (
+  msg.includes("thank you") ||
+  msg.includes("thanks")
+) {
+  reply = "You're welcome 👌";
+}
+
+else if (
+  msg.includes("bye") ||
+  msg.includes("goodbye")
+) {
+  reply = "Goodbye 👋 Thanks for visiting the portfolio.";
+}
+
+else if (
+  msg.includes("who made you")
+) {
+  reply = "I was custom-built by Mishael Akingboye using JavaScript.";
+}
+
+else if (
+  msg.includes("are you real")
+) {
+  reply = "I'm a portfolio AI assistant designed to answer questions about projects and technical skills.";
+}
+
+else if (
+  msg.includes("what is your name")
+) {
+  reply = "I'm Akingboye's AI Assistant.";
+}
+
+else if (
+  msg.includes("who is mishael") ||
+  msg.includes("who is akingboye") ||
+  msg.includes("tell me about mishael")
+) {
+  reply = "Mishael Akingboye is a data analyst and database developer focused on SQL systems, analytics engineering and revenue intelligence.";
+}
+
+else if (
+  msg.includes("skills") ||
+  msg.includes("what skills")
+) {
+  reply = "Akingboye specializes in SQL, PostgreSQL, Supabase, Power BI, data analytics, forecasting and dashboard systems.";
+}
+
+else if (
+  msg.includes("sql")
+) {
+  reply = "SQL is one of Akingboye's strongest skills, especially PostgreSQL analytics and revenue intelligence systems.";
+}
+
+else if (
+  msg.includes("power bi")
+) {
+  reply = "Power BI is used for interactive dashboards and executive reporting systems.";
+}
+
+else if (
+  msg.includes("python")
+) {
+  reply = "Python is used for analytics, automation and data processing workflows.";
+}
+
+else if (
+  msg.includes("database")
+) {
+  reply = "Akingboye works with PostgreSQL and Supabase to build scalable analytical database systems.";
+}
+
+else if (
+  msg.includes("analytics")
+) {
+  reply = "Akingboye builds analytics systems focused on KPIs, forecasting, segmentation and business intelligence.";
+}
+
+else if (
+  msg.includes("experience")
+) {
+  reply = "Akingboye is growing as a modern data analyst with strong SQL and analytics engineering experience.";
+}
+
+else if (
+  msg.includes("github")
+) {
+  reply = "The GitHub contains SQL systems, analytics projects and database engineering work.";
+}
+
+else if (
+  msg.includes("project")
+) {
+  reply = "Featured projects include the Revenue Intelligence System and multiple analytics case studies.";
+}
+
+else if (
+  msg.includes("revenue intelligence")
+) {
+  reply = "The Revenue Intelligence System is a PostgreSQL analytics platform with forecasting, churn analysis and KPI tracking.";
+}
+
+else if (
+  msg.includes("best project") ||
+  msg.includes("main project")
+) {
+  reply = "The flagship project is the Revenue Intelligence System.";
+}
+
+else if (
+  msg.includes("car insurance")
+) {
+  reply = "The Car Insurance Analytics project explored claim frequency, customer risk factors, household income patterns and insurance trends.";
+}
+
+else if (
+  msg.includes("hire")
+) {
+  reply = "Akingboye combines analytical thinking, SQL engineering and modern dashboard development.";
+}
+
+else if (
+  msg.includes("future")
+) {
+  reply = "The goal is to become a high-level analytics engineer building enterprise intelligence systems.";
+}
+
+else if (
+  msg.includes("contact")
+) {
+  reply = "You can contact Akingboye through the contact section below.";
+}
+
+else if (
+  msg.includes("joke")
+) {
+  reply = "Why do data analysts love SQL? Because they like relationships 😄";
+}
+
+else if (
+  msg.includes("love you")
+) {
+  reply = "😂 I'm just code, but thanks.";
+}
+
+else if (
+  msg.includes("ai")
+) {
+  reply = "This AI assistant was built into the portfolio using JavaScript.";
+}
+
+else if (
+  msg.includes("what can you do")
+) {
+  reply = "I can explain projects, analytics systems, technical skills, SQL work and portfolio information.";
+}
+
+else {
+  reply = "I may not understand that fully yet, but I can answer questions about analytics, SQL, databases, Power BI, projects and Akingboye's experience.";
+}
 
   // BOT MESSAGE
   setTimeout(() => {
