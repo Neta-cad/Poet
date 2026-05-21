@@ -172,96 +172,7 @@ function runSQL() {
 
 }
 
-async function sendMessage() {
 
-  const input = document.getElementById("userInput");
-  const messages = document.getElementById("chatMessages");
-
-  const userText = input.value.trim();
-
-  if (!userText) return;
-
-  // USER MESSAGE
-  messages.innerHTML += `
-    <div class="user-msg">${userText}</div>
-  `;
-
-  input.value = "";
-
-  messages.innerHTML += `
-    <div class="bot-msg typing" id="typing">
-      Analyst AI is thinking...
-    </div>
-  `;
-
-  messages.scrollTop = messages.scrollHeight;
-
-  try {
-
-    const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyALrLNW_1HK87y5b0eTvu3E3mC20jHWaaQ",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          contents: [
-            {
-              parts: [
-                {
-                  text:
-`You are Analyst AI for Mishael Akingboye's portfolio.
-
-You are intelligent, professional, friendly and conversational.
-
-You help recruiters and visitors understand:
-- Data Analytics
-- SQL
-- PostgreSQL
-- Power BI
-- Revenue Intelligence
-- Analytics Engineering
-- Projects
-- Career goals
-
-Always sound modern and smart.
-
-User message: ${userText}`
-                }
-              ]
-            }
-          ]
-        })
-      }
-    );
-
-    const data = await response.json();
-
-    document.getElementById("typing").remove();
-
-    const reply =
-      data.candidates[0].content.parts[0].text;
-
-    messages.innerHTML += `
-      <div class="bot-msg">${reply}</div>
-    `;
-
-    messages.scrollTop = messages.scrollHeight;
-
-  } catch (error) {
-
-    document.getElementById("typing").remove();
-
-    messages.innerHTML += `
-      <div class="bot-msg">
-        AI temporarily unavailable.
-      </div>
-    `;
-
-  }
-
-}
 
 
 
@@ -458,4 +369,103 @@ new Chart(forecastCtx, {
     }
   }
 });
+function toggleChat(){
+
+  const bot = document.getElementById("aiBot");
+
+  if(bot.style.display === "flex"){
+    bot.style.display = "none";
+  } else {
+    bot.style.display = "flex";
+  }
+
+}
+
+async function sendMessage(){
+
+  const input = document.getElementById("userInput");
+  const messages = document.getElementById("chatMessages");
+
+  const userText = input.value.trim();
+
+  if(!userText) return;
+
+  messages.innerHTML += `
+    <div class="user-msg">${userText}</div>
+  `;
+
+  input.value = "";
+
+  messages.innerHTML += `
+    <div class="bot-msg typing" id="typing">
+      Analyst AI is thinking...
+    </div>
+  `;
+
+  messages.scrollTop = messages.scrollHeight;
+
+  try{
+
+    const response = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyBjHNrMTnogZp5e2BoZXSviVUWjVRiovSw",
+      {
+        method:"POST",
+
+        headers:{
+          "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+          contents:[
+            {
+              parts:[
+                {
+                  text:`You are Analyst AI for Mishael Akingboye's portfolio.
+
+You are smart, modern, professional and conversational.
+
+Answer clearly and naturally.
+
+User: ${userText}`
+                }
+              ]
+            }
+          ]
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    document.getElementById("typing").remove();
+
+    let reply = "AI unavailable.";
+
+    if(
+      data.candidates &&
+      data.candidates[0]
+    ){
+      reply =
+      data.candidates[0]
+      .content.parts[0].text;
+    }
+
+    messages.innerHTML += `
+      <div class="bot-msg">${reply}</div>
+    `;
+
+    messages.scrollTop =
+    messages.scrollHeight;
+
+  }catch(error){
+
+    document.getElementById("typing").remove();
+
+    messages.innerHTML += `
+      <div class="bot-msg">
+        Connection error.
+      </div>
+    `;
+  }
+}
 
