@@ -94,9 +94,11 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#dashboard">Dashboard</a></li>
+    <li><a href="#radar">Radar</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#learning">Learning</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#blog">Blog</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -298,6 +300,18 @@
 </section>
 
 <div class="divider"></div>
+<!-- SKILLS RADAR -->
+<section id="radar" style="background:var(--surface);">
+  <div class="section-label">Visual Skills</div>
+  <h2 class="section-title">Skills Radar</h2>
+  <p class="section-sub">A visual representation of my current skill levels across key data analytics competencies.</p>
+
+  <div style="max-width:500px; margin:0 auto;">
+    <canvas id="radarChart"></canvas>
+  </div>
+</section>
+
+<div class="divider"></div>
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-label">What I Know</div>
@@ -485,6 +499,8 @@
         <a href="https://supabase.com" class="project-link secondary" target="_blank">Live DB</a>
       </div>
     </div>
+</div>
+    
   </div>
 </section>
 
@@ -569,6 +585,108 @@
 
 <div class="divider"></div>
 
+<!-- CURRENTLY LEARNING -->
+<section id="learning">
+  <div class="section-label">Growth Mindset</div>
+  <h2 class="section-title">Currently Learning</h2>
+  <p class="section-sub">Always growing. Here is what I am actively building skills in right now.</p>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:20px;">
+
+    <div class="skill-card fade-up">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(0,212,255,0.1)">🐍</div>
+        <div>
+          <div class="skill-card-title">Python for Data Analysis</div>
+          <div style="color:var(--accent); font-size:0.75rem; margin-top:4px;">In Progress</div>
+        </div>
+      </div>
+      <div style="color:var(--muted); font-size:0.83rem; line-height:1.6;">Learning Pandas, NumPy and Matplotlib for advanced data manipulation and visualization beyond SQL.</div>
+      <div style="margin-top:12px;">
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:25%"></div></div>
+        <div style="font-size:0.72rem; color:var(--muted); margin-top:4px;">25% Complete</div>
+      </div>
+    </div>
+
+    <div class="skill-card fade-up">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(124,58,237,0.1)">☁️</div>
+        <div>
+          <div class="skill-card-title">Azure Data Engineering</div>
+          <div style="color:var(--accent2); font-size:0.75rem; margin-top:4px;">Starting Soon</div>
+        </div>
+      </div>
+      <div style="color:var(--muted); font-size:0.83rem; line-height:1.6;">Exploring Microsoft Azure for cloud data engineering — Azure Data Factory, Synapse Analytics and Data Lake.</div>
+      <div style="margin-top:12px;">
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:10%"></div></div>
+        <div style="font-size:0.72rem; color:var(--muted); margin-top:4px;">10% Complete</div>
+      </div>
+    </div>
+
+    <div class="skill-card fade-up">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(16,185,129,0.1)">🔄</div>
+        <div>
+          <div class="skill-card-title">dbt (Data Build Tool)</div>
+          <div style="color:var(--accent3); font-size:0.75rem; margin-top:4px;">Researching</div>
+        </div>
+      </div>
+      <div style="color:var(--muted); font-size:0.83rem; line-height:1.6;">Learning dbt for transforming data in warehouses — the modern standard for analytics engineering.</div>
+      <div style="margin-top:12px;">
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:15%"></div></div>
+        <div style="font-size:0.72rem; color:var(--muted); margin-top:4px;">15% Complete</div>
+      </div>
+    </div>
+
+    <div class="skill-card fade-up">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(251,191,36,0.1)">❄️</div>
+        <div>
+          <div class="skill-card-title">Snowflake</div>
+          <div style="color:#fbbf24; font-size:0.75rem; margin-top:4px;">On Roadmap</div>
+        </div>
+      </div>
+      <div style="color:var(--muted); font-size:0.83rem; line-height:1.6;">Planning to learn Snowflake cloud data warehouse — one of the most in-demand skills for data engineers.</div>
+      <div style="margin-top:12px;">
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:5%"></div></div>
+        <div style="font-size:0.72rem; color:var(--muted); margin-top:4px;">5% Complete</div>
+      </div>
+    </div>
+
+    <div class="skill-card fade-up">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(0,212,255,0.1)">🤖</div>
+        <div>
+          <div class="skill-card-title">AI & Machine Learning Basics</div>
+          <div style="color:var(--accent); font-size:0.75rem; margin-top:4px;">Exploring</div>
+        </div>
+      </div>
+      <div style="color:var(--muted); font-size:0.83rem; line-height:1.6;">Exploring how AI and ML connect with data analytics — predictive modeling and intelligent data systems.</div>
+      <div style="margin-top:12px;">
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:20%"></div></div>
+        <div style="font-size:0.72rem; color:var(--muted); margin-top:4px;">20% Complete</div>
+      </div>
+    </div>
+
+    <div class="skill-card fade-up">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(124,58,237,0.1)">📊</div>
+        <div>
+          <div class="skill-card-title">Advanced Power BI</div>
+          <div style="color:var(--accent2); font-size:0.75rem; margin-top:4px;">In Progress</div>
+        </div>
+      </div>
+      <div style="color:var(--muted); font-size:0.83rem; line-height:1.6;">Deepening Power BI skills — DAX formulas, advanced visuals, row level security and enterprise reporting.</div>
+      <div style="margin-top:12px;">
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:40%"></div></div>
+        <div style="font-size:0.72rem; color:var(--muted); margin-top:4px;">40% Complete</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-label">My Journey</div>
