@@ -1033,3 +1033,82 @@ function toggleRecruiterMode() {
   init();
   animate();
 })();
+// Floating Data Particles
+const canvas = document.getElementById('particles');
+const ctx2 = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+const particles = [];
+const particleCount = 60;
+
+class Particle {
+  constructor() {
+    this.reset();
+  }
+
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.vx = (Math.random() - 0.5) * 0.5;
+    this.vy = (Math.random() - 0.5) * 0.5;
+    this.radius = Math.random() * 2 + 1;
+    this.opacity = Math.random() * 0.5 + 0.1;
+    this.color = Math.random() > 0.5 ? '0,212,255' : '124,58,237';
+  }
+
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+  }
+
+  draw() {
+    ctx2.beginPath();
+    ctx2.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx2.fillStyle = `rgba(${this.color},${this.opacity})`;
+    ctx2.fill();
+  }
+}
+
+// Create particles
+for (let i = 0; i < particleCount; i++) {
+  particles.push(new Particle());
+}
+
+function connectParticles() {
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 120) {
+        ctx2.beginPath();
+        ctx2.moveTo(particles[i].x, particles[i].y);
+        ctx2.lineTo(particles[j].x, particles[j].y);
+        ctx2.strokeStyle = `rgba(0,212,255,${0.1 * (1 - dist / 120)})`;
+        ctx2.lineWidth = 0.5;
+        ctx2.stroke();
+      }
+    }
+  }
+}
+
+function animateParticles() {
+  ctx2.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
+  connectParticles();
+  requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
