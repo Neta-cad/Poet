@@ -929,3 +929,107 @@ function toggleRecruiterMode() {
     document.body.style.overflow = 'auto';
   }
 }
+// ── FLOATING DATA PARTICLES ──
+(function () {
+  const canvas = document.createElement('canvas');
+  canvas.id = 'particles-canvas';
+  document.body.prepend(canvas);
+  const ctx = canvas.getContext('2d');
+
+  // Data-themed symbols matching a data analyst portfolio
+  const symbols = [
+    'SQL', 'SELECT', 'JOIN', 'WHERE', 'GROUP BY',
+    '{ }', '[ ]', '#', '%', '∑', '→', '=',
+    'AVG()', 'COUNT(*)', 'SUM()', 'MAX()',
+    '01', '10', '11', '00',
+    'CSV', 'ETL', 'KPI', 'ROI',
+    '📊', '📈', '🗄️', '⚡',
+    'NULL', 'INT', 'VARCHAR', 'INDEX',
+    'PowerBI', 'Excel', 'PostgreSQL',
+  ];
+
+  const colors = [
+    '#00d4ff',  // accent (cyan)
+    '#7c3aed',  // accent2 (purple)
+    '#10b981',  // accent3 (green)
+    '#00d4ff88',
+    '#7c3aed88',
+  ];
+
+  let particles = [];
+  let W, H;
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function randomBetween(a, b) {
+    return a + Math.random() * (b - a);
+  }
+
+  function createParticle() {
+    return {
+      x: randomBetween(0, W),
+      y: randomBetween(H + 20, H + 200),   // start below screen
+      text: symbols[Math.floor(Math.random() * symbols.length)],
+      color: colors[Math.floor(Math.random() * colors.length)],
+      size: randomBetween(9, 15),
+      speed: randomBetween(0.3, 1.0),       // drift upward slowly
+      opacity: randomBetween(0.15, 0.55),
+      drift: randomBetween(-0.25, 0.25),    // slight horizontal sway
+      wobble: randomBetween(0, Math.PI * 2),
+      wobbleSpeed: randomBetween(0.005, 0.02),
+    };
+  }
+
+  function init() {
+    resize();
+    particles = [];
+    // Spread initial particles across the full screen height
+    for (let i = 0; i < 55; i++) {
+      const p = createParticle();
+      p.y = randomBetween(0, H);  // scatter on load
+      particles.push(p);
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, W, H);
+
+    particles.forEach((p, i) => {
+      // Move upward + wobble
+      p.y -= p.speed;
+      p.wobble += p.wobbleSpeed;
+      p.x += p.drift + Math.sin(p.wobble) * 0.3;
+
+      // Fade near top
+      const fadeZone = H * 0.15;
+      let alpha = p.opacity;
+      if (p.y < fadeZone) {
+        alpha = p.opacity * (p.y / fadeZone);
+      }
+
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, alpha);
+      ctx.font = `${p.size}px 'DM Sans', monospace`;
+      ctx.fillStyle = p.color;
+      ctx.fillText(p.text, p.x, p.y);
+      ctx.restore();
+
+      // Reset when it floats off the top
+      if (p.y < -30) {
+        particles[i] = createParticle();
+      }
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('resize', () => {
+    resize();
+  });
+
+  init();
+  animate();
+})();
