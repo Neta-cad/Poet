@@ -1194,9 +1194,9 @@ body.light nav {
 #aiButton{
   position:fixed;
   bottom:25px;
-  right:25px;
-  width:72px;
-  height:72px;
+  left:25px;
+  width:68px;
+height:68px;
   border-radius:50%;
   overflow:hidden;
   cursor:pointer;
@@ -1218,6 +1218,9 @@ body.light nav {
 
 #aiButton:hover{
   transform:translateY(-4px) scale(1.03);
+  box-shadow:
+0 15px 45px rgba(0,0,0,0.55),
+0 0 40px rgba(0,212,255,0.25);
 }
 
 #aiButton img{
@@ -1232,7 +1235,7 @@ body.light nav {
 .ai-bot{
   position:fixed;
   bottom:110px;
-  right:25px;
+  left:25px;
 
   width:360px;
   height:520px;
