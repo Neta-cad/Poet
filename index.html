@@ -12,6 +12,127 @@
 <body>
 
 <!-- NAV -->
+
+<!-- RECRUITER MODE -->
+<div id="recruiterMode" style="
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 9999;
+  overflow-y: auto;
+  padding: 40px 20px;
+">
+  <div style="
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
+  ">
+    <!-- Header -->
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:32px;">
+      <div>
+        <h2 style="font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:var(--accent); margin-bottom:4px;">Akingboye Ayomide Mishael</h2>
+        <div style="color:var(--muted); font-size:0.9rem;">Junior Data Analyst · Lagos, Nigeria · Open to Remote</div>
+      </div>
+      <button onclick="toggleRecruiterMode()" style="background:none; border:1px solid var(--border); color:var(--muted); padding:8px 16px; border-radius:8px; cursor:pointer; font-size:0.85rem;">✕ Close</button>
+    </div>
+
+    <!-- Contact -->
+    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:32px;">
+      <a href="mailto:akingboyeayomide29@gmail.com" style="color:var(--accent); font-size:0.83rem; text-decoration:none;">✉️ akingboyeayomide29@gmail.com</a>
+      <a href="https://linkedin.com/in/akingboye-ayomide" target="_blank" style="color:var(--accent); font-size:0.83rem; text-decoration:none;">💼 LinkedIn</a>
+      <a href="https://github.com/Neta-cad" target="_blank" style="color:var(--accent); font-size:0.83rem; text-decoration:none;">🐙 GitHub</a>
+      <a href="https://wa.me/2348128129139" target="_blank" style="color:var(--accent); font-size:0.83rem; text-decoration:none;">💬 WhatsApp</a>
+    </div>
+
+    <!-- Skills -->
+    <div style="margin-bottom:28px;">
+      <div style="font-family:'Syne',sans-serif; font-weight:700; font-size:1rem; margin-bottom:12px; color:var(--text);">🛠️ Core Skills</div>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        <span style="background:rgba(0,212,255,0.1); color:var(--accent); border:1px solid rgba(0,212,255,0.2); padding:4px 12px; border-radius:100px; font-size:0.78rem;">PostgreSQL</span>
+        <span style="background:rgba(0,212,255,0.1); color:var(--accent); border:1px solid rgba(0,212,255,0.2); padding:4px 12px; border-radius:100px; font-size:0.78rem;">SQL</span>
+        <span style="background:rgba(0,212,255,0.1); color:var(--accent); border:1px solid rgba(0,212,255,0.2); padding:4px 12px; border-radius:100px; font-size:0.78rem;">Power BI</span>
+        <span style="background:rgba(0,212,255,0.1); color:var(--accent); border:1px solid rgba(0,212,255,0.2); padding:4px 12px; border-radius:100px; font-size:0.78rem;">Excel</span>
+        <span style="background:rgba(0,212,255,0.1); color:var(--accent); border:1px solid rgba(0,212,255,0.2); padding:4px 12px; border-radius:100px; font-size:0.78rem;">Supabase</span>
+        <span style="background:rgba(0,212,255,0.1); color:var(--accent); border:1px solid rgba(0,212,255,0.2); padding:4px 12px; border-radius:100px; font-size:0.78rem;">Database Design</span>
+        <span style="background:rgba(0,212,255,0.1); color:var(--accent); border:1px solid rgba(0,212,255,0.2); padding:4px 12px; border-radius:100px; font-size:0.78rem;">Data Analytics</span>
+        <span style="background:rgba(0,212,255,0.1); color:var(--accent); border:1px solid rgba(0,212,255,0.2); padding:4px 12px; border-radius:100px; font-size:0.78rem;">GitHub</span>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div style="margin-bottom:28px;">
+      <div style="font-family:'Syne',sans-serif; font-weight:700; font-size:1rem; margin-bottom:12px; color:var(--text);">💼 Key Projects</div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="padding:16px; background:rgba(0,212,255,0.05); border:1px solid rgba(0,212,255,0.1); border-radius:10px;">
+          <div style="font-weight:600; font-size:0.9rem; margin-bottom:4px;">RevIQ — Revenue Intelligence System</div>
+          <div style="color:var(--muted); font-size:0.8rem;">12 tables · Materialized Views · Custom Functions · 12 Analytical Queries · Live on Supabase</div>
+        </div>
+        <div style="padding:16px; background:rgba(16,185,129,0.05); border:1px solid rgba(16,185,129,0.1); border-radius:10px;">
+          <div style="font-weight:600; font-size:0.9rem; margin-bottom:4px;">RemoteHustleDB — Master Operational Database</div>
+          <div style="color:var(--muted); font-size:0.8rem;">10 tables · RLS · Analytical Queries · Live on Supabase</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievements -->
+    <div style="margin-bottom:28px;">
+      <div style="font-family:'Syne',sans-serif; font-weight:700; font-size:1rem; margin-bottom:12px; color:var(--text);">🏆 Achievements</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; align-items:center; gap:10px; font-size:0.85rem; color:var(--muted);">
+          <span style="color:var(--accent3);">✅</span> Advanced to Final Stage of Remote Hustle Competition
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; font-size:0.85rem; color:var(--muted);">
+          <span style="color:var(--accent3);">✅</span> Data Analytics Certificate — Quantum Analytics 2024
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; font-size:0.85rem; color:var(--muted);">
+          <span style="color:var(--accent3);">✅</span> Built 2 production-grade databases with 22 tables total
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; font-size:0.85rem; color:var(--muted);">
+          <span style="color:var(--accent3);">✅</span> Wrote 12 complex analytical SQL queries
+        </div>
+      </div>
+    </div>
+
+    <!-- CV Download -->
+    <a href="https://raw.githubusercontent.com/Neta-cad/Portfolio1/main/Akingboye_Ayomide_CV.pdf" download="Akingboye_Ayomide_CV.pdf" style="
+      display: block;
+      text-align: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #000;
+      padding: 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-family: 'Syne', sans-serif;
+    ">⬇️ Download Full CV</a>
+  </div>
+</div>
+
+<!-- RECRUITER MODE BUTTON -->
+<button onclick="toggleRecruiterMode()" style="
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: linear-gradient(135deg, var(--accent3), #059669);
+  color: #000;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 997;
+  font-family: 'Syne', sans-serif;
+  box-shadow: 0 0 20px rgba(16,185,129,0.3);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+">⭐ Recruiter View</button>
+
 <!-- OPEN TO WORK BANNER -->
 <div id="openToWork" style="
   position: fixed;

@@ -918,3 +918,14 @@ new Chart(radarCtx, {
     }
   }
 });
+// Recruiter Mode
+function toggleRecruiterMode() {
+  const modal = document.getElementById('recruiterMode');
+  if (modal.style.display === 'none' || modal.style.display === '') {
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  } else {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+}
